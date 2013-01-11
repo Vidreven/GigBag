@@ -11,6 +11,11 @@ Download with:
 Automatically changes rvm to a new gemset (set in .rvmrc)
 
 `$ gem install bundle`
+
+Install dependencies
+
+`bundle install --without production`
+
 To run tests:
 
 `$ bundle exec rake db:migrate`
