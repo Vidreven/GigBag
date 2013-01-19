@@ -3,6 +3,6 @@ rvm:
   - "1.9.3"
 # uncomment this line if your project needs to run something other than `rake`:
 script: bundle install --without production
-		- rake db:migrate
-		- rake db:test:prepare
+		- bundle exec rake db:schema:load
+		- bundle exec rake db:test:prepare
 		- bundle exec rspec spec
