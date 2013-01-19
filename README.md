@@ -1,6 +1,6 @@
 ## Build Status
 [![Build Status](https://buildhive.cloudbees.com/job/Vunovati/job/uskoci/badge/icon)](https://buildhive.cloudbees.com/job/Vunovati/job/GigBag/)
-
+[![Build Status](https://travis-ci.org/Vunovati/GigBag.png?branch=add_cucumber)](https://travis-ci.org/Vunovati/GigBag)
 GigBag
 ======
 
