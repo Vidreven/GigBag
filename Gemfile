@@ -41,7 +41,9 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'rb-inotify', '~> 0.8.8'
-end 
+  gem "cucumber-rails", ">= 1.3.0", :require => false
+  gem "database_cleaner", ">= 0.7.2"
+end
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
