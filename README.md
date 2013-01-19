@@ -12,15 +12,20 @@ Automatically changes rvm to a new gemset (set in .rvmrc)
 
 `$ gem install bundle`
 
+
 Install dependencies
+
 
 `bundle install --without production`
 
 To run tests:
 
-`$ bundle exec rake db:migrate`
+`$ bundle exec rake db:schema:load`
+
 `$ bundle exec rake db:test:prepare`
+
 `$ bundle exec rspec spec`
 
 Run server on `localhost:3000`
+
 `$ rails s`
