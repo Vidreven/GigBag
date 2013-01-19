@@ -2,7 +2,7 @@ language: ruby
 rvm:
   - "1.9.3"
 # uncomment this line if your project needs to run something other than `rake`:
-script: bundle install --without production
-		- bundle exec rake db:schema:load
-		- bundle exec rake db:test:prepare
-		- bundle exec rspec spec
+before_script: bundle install --without production
+  - bundle exec rake db:schema:load RAILS_ENV=test
+  - bundle exec rake db:test:prepare RAILS_ENV=test
+  - bundle exec rspec spec RAILS_ENV=test
