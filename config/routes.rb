@@ -1,5 +1,14 @@
 GigBag::Application.routes.draw do
-  root :to => 'sessions#new'
+ # devise_for :users
+  
+ authenticated :user do
+    root :to => 'home#index'
+  end
+  root :to => "home#index"
+  devise_for :users
+  resources :users
+
+  #root :to => 'sessions#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,10 +21,9 @@ GigBag::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :users
-  resources :sessions
-
-  match '/login', to: 'sessions#new'
+  #resources :users
+  
+ # match '/login', to: 'sessions#new'
 
   # Sample resource route with options:
   #   resources :products do
