@@ -3,6 +3,7 @@ As a registered user of the website
 I want to edit my user profile
 so I can change my username
 
+@wip
 Scenario: I sign in and edit my account
 Given I am logged in
 When I edit my account details
