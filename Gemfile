@@ -8,6 +8,7 @@ gem 'rails', '3.2.11'
 
 group :development, :test do
   gem 'sqlite3'
+  gem "rspec-rails"
 end
 
 group :production do
@@ -32,7 +33,7 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-gem "rspec-rails", :group => [:test, :development]
+#gem "rspec-rails", :group => [:test, :development]
 
 group :test do
   # Pretty printed test output
@@ -43,6 +44,9 @@ group :test do
   gem 'rb-inotify', '~> 0.8.8'
   gem "cucumber-rails", ">= 1.3.0", :require => false
   gem "database_cleaner", ">= 0.7.2"
+  gem "devise", ">= 2.2.2"
+  gem "email_spec", ">= 1.4.0"
+  gem 'annotate', '2.5.0'
 end
 
 # To use Jbuilder templates for JSON
