@@ -1,6 +1,11 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require 'active_record/railtie'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'active_resource/railtie'
+require 'sprockets/railtie'
+
 require 'devise'
 
 if defined?(Bundler)
@@ -65,8 +70,9 @@ module GigBag
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
-        g.view_specs false
-        g.helper_specs false
+      g.test_framework  :rspec, :fixture => false
+      g.view_specs false
+      g.helper_specs false
     end
   end
 end
