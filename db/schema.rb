@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(:version => 20130131195210) do
 
+  create_table "fan_profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "fan_profiles", ["user_id"], :name => "index_fan_profiles_on_user_id"
+
   create_table "users", :force => true do |t|
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
