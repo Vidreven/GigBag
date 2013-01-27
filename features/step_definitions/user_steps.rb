@@ -155,7 +155,7 @@ Then /^I see a successful sign in message$/ do
   page.should have_content "Signed in successfully."
 end
 
-Then /^I see a confirm email message$/ do
+Then /^I should see a confirm email message$/ do
   page.should have_content "A message with a confirmation link has been sent to your email address."
 end
 
