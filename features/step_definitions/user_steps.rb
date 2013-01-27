@@ -130,6 +130,10 @@ When /^I look at the list of users$/ do
   visit '/'
 end
 
+When /^I confirm my account$/ do
+  #TODO
+end
+
 ### THEN ###
 Then /^I should be signed in$/ do
   page.should have_content "Logout"
@@ -149,6 +153,10 @@ end
 
 Then /^I see a successful sign in message$/ do
   page.should have_content "Signed in successfully."
+end
+
+Then /^I should see a confirm email message$/ do
+  page.should have_content "A message with a confirmation link has been sent to your email address."
 end
 
 Then /^I should see a successful sign up message$/ do
