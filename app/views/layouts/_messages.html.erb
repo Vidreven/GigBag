@@ -1,5 +1,22 @@
-<% flash.each do |name, msg| %>
-  <% if msg.is_a?(String) %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<div class="row">
+<% if flash[:error] %>
+  <%= content_tag :div, :id => "flash_name", :class => "four columns centered alert-box alert-box error" do %>
+    <%= flash[:error] %>
+    <a class="close">x</a>
   <% end %>
 <% end %>
+
+<% if flash[:notice] %>
+  <%= content_tag :div, :id => "flash_name", :class => "four columns centered alert-box alert-box success" do %>
+    <%= flash[:notice] %>
+    <a class="close">x</a>
+  <% end %>
+<% end %>
+
+<% if flash[:alert] %>
+  <%= content_tag :div, :id => "flash_name", :class => "four columns centered alert-box alert-box warning" do %>
+    <%= flash[:alert] %>
+    <a class="close">x</a>
+  <% end %>
+<% end %>
+</div>

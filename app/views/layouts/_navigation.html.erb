@@ -1,5 +1,5 @@
 <%= link_to "GigBag", root_path, :class => 'brand' %>
-<ul class="nav">
+<ul class="loginButtons button-group">
   <% if user_signed_in? %>
     <%= render :partial => "shared/signed_in_navigation" %>
   <% else %>
