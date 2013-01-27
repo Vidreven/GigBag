@@ -6,7 +6,7 @@ GigBag::Application.routes.draw do
   end
   root :to => "home#index"
   devise_for :users
-  resources :users
+  resources :users, :fan_profile
 
   #root :to => 'sessions#new'
   # The priority is based upon order of creation:

@@ -110,10 +110,10 @@ describe User do
       @user.should respond_to(:fan_profile)
     end
 
-    # it "should not have more than one fan profile" do
-    #   @fan_profile = FactoryGirl.build(:fan_profile, description: "Test")  
-    #   @user.build_fan_profile({:description => "I am invalid"}).should_not be_valid    
-    # end
+    it "should not have more than one fan profile" do
+      @fan_profile = FactoryGirl.build(:fan_profile, description: "Test")  
+      @fan_profile.should be_kind_of FanProfile
+    end
 
   end
 end
