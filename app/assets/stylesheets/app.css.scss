@@ -1,0 +1,187 @@
+// Your custom settings file to override Foundation defaults
+@import "settings";
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+
+@import "animate";
+
+// ----------------------------------------
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+// @import "compass/css3";
+// @import "foundation/settings";
+// @import "foundation/functions/all";
+
+// Control which mixins you have access too
+
+// @import "foundation/mixins/clearfix";
+// @import "foundation/mixins/css-triangle";
+// @import "foundation/mixins/font-size";
+
+// Must include next two for semantic grid to work
+
+// @import "foundation/mixins/respond-to";
+// @import "foundation/mixins/semantic-grid";
+
+// @import "modular-scale";
+// @import "foundation/common/globals";
+
+// Must include the grid for any responsiveness
+
+// @import "foundation/components/grid";
+
+// Control which common styles get compiled
+
+// @import "foundation/common/typography";
+// @import "foundation/common/forms";
+
+// Control which components you get if customizing
+
+// @import "foundation/components/modules/buttons";
+// @import "foundation/components/modules/tabs";
+// @import "foundation/components/modules/ui";
+// @import "foundation/components/modules/topbar";
+// @import "foundation/components/modules/navbar";
+// @import "foundation/components/modules/orbit";
+// @import "foundation/components/modules/reveal";
+// @import "foundation/components/modules/offcanvas";
+
+// Media Queries Overrides
+// @import "foundation/components/modules/mqueries";
+
+$logoWidth: 60px;
+$logoHeight: 111px;
+$backgroundColor: #CCFFFF;
+$containerColor: $mainColor;
+
+/* Functions */
+@function getColumnsWidth($numberOfColumns) {
+	@return $rowWidth/$totalColumns*$numberOfColumns;
+}
+
+/* Mixins */
+@mixin borderRadius($radius: 5px, $color: white) {
+	border: 1px solid $color;
+	border-radius: $radius;
+}
+
+@mixin transparentBackground($backgroundColor: #336666, $opacity: 0.7) {
+	background-color: rgba($backgroundColor, $opacity);
+}
+
+/* Styling */
+body {
+	background-color: $backgroundColor;
+	background-image: image-url('noisy-texture.png');
+	color: $mainColor;
+	font-size: 100%;
+}
+
+.sidebar {
+	margin-left: 1px;
+	width: 35px;
+	position: fixed;
+	top: 50%;
+	margin-top: -50px; 
+	opacity: 0.9;
+
+	img:hover {
+		-webkit-transition: all .25s linear;
+		   -moz-transition: all .25s linear;
+		    -ms-transition: all .25s linear;
+		     -o-transition: all .25s linear;
+		        transition: all .25s linear;
+		opacity: 0.5;
+	}
+}
+
+#navigation {
+	width: getColumnsWidth(6);
+	height: $logoHeight+40;
+
+	.logo, .siteTitle, .loginButtons {
+		position: absolute;
+	}
+
+	.siteTitle {
+		top: 40px;
+		left: 90px;
+		vertical-align: center;
+		font-family: 'Stereofidelic', Arial, sans-serif;
+		font-size: 3.5em;
+		font-weight: bold;
+		color: $mainColor;
+	}
+
+	.logo {
+		top: 10px;
+		width: $logoWidth;
+		height: $logoHeight;
+		background-image: image-url('logo.png');
+	}
+
+	.loginButtons {
+		top: 95px;
+		right: 0px;
+	}
+
+	p {
+		width: 550px;
+		padding-left: 200px;
+		padding-top: 50px;
+		font-style: italic;
+		font-size: 14pt;
+	}
+
+}
+
+.box {
+	color: $backgroundColor;
+	padding-bottom: 20px;
+	background-color: $containerColor;
+	
+	@include borderRadius(5px, $containerColor);
+
+	h1, h2, h3, p {
+		color: inherit;
+		padding-left: 10px;
+	}
+
+	a {
+		color: inherit;
+
+		&:hover {
+			color: darken($backgroundColor, 50%);
+		}
+	}
+
+	form {
+
+		legend {
+			background-color: $containerColor;
+		}
+
+		label {
+			color: inherit;
+		}
+	}
+}
+
+.row {
+	padding-bottom: 20px;
+}
+
+footer {
+	text-align: center;
+}
+
+.has-tip {
+	color: white;
+	font-weight: normal;
+
+	&:hover {
+		color: darken(white, 30%);
+	}
+}
