@@ -12,4 +12,11 @@
     <a class="close">x</a>
   <% end %>
 <% end %>
+
+<% if flash[:alert] %>
+  <%= content_tag :div, :id => "flash_name", :class => "four columns centered alert-box alert-box warning" do %>
+    <%= flash[:alert] %>
+    <a class="close">x</a>
+  <% end %>
+<% end %>
 </div>
