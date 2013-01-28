@@ -26,5 +26,6 @@ pickle-email-*.html
 .sublime-*
 .idea*
 *.ids
+
 # Ignore application configuration
 /config/application.yml
