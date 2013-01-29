@@ -110,10 +110,13 @@ describe User do
       @user.should respond_to(:fan_profile)
     end
 
-    it "should not have more than one fan profile" do
-      @fan_profile = FactoryGirl.build(:fan_profile, description: "Test")  
-      @fan_profile.should be_kind_of FanProfile
+    it "should not be marked as having a fan profile by default" do
+      @user.fan_profile_created?.should be_false
     end
 
+    it "should be marked as having a fan profile if profile is created" do
+      @user.create_fan_profile({:description => "test"})
+      @user.fan_profile_created?.should be_true
+    end
   end
 end
