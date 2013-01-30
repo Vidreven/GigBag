@@ -21,7 +21,7 @@ describe FanProfileController do
     end
 
     it "should show each FAN_PROFILE individually" do
-      
+     
       get :show, :id => 1
       response.should be_success      
     end

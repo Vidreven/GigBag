@@ -9,6 +9,7 @@ gem 'rails', '3.2.11'
 group :development, :test do
   gem 'sqlite3'
   gem "rspec-rails"
+  gem 'factory_girl_rails'
 end
 
 group :production do
@@ -43,9 +44,10 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'guard-rspec'
+  gem 'faker'
+  gem 'launchy'
   gem 'rb-inotify', '~> 0.8.8'
   gem "cucumber-rails", ">= 1.3.0", :require => false
   gem "database_cleaner", ">= 0.7.2"
