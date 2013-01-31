@@ -32,6 +32,7 @@ end
 
 gem 'jquery-rails'
 gem "devise", ">= 2.2.2"
+gem 'devise_invitable', '~> 1.1.0'
 gem "figaro"
 
 # To use ActiveModel has_secure_password
