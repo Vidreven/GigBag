@@ -9,4 +9,8 @@ class FanProfileController < ApplicationController
   def index
     @profiles = FanProfile.all
   end
+
+  def show
+    @fan_profile = FanProfile.find(params[:id])
+  end
 end

@@ -6,4 +6,9 @@ FactoryGirl.define do
     user
     description "{ Faker::Lorem.sentences }"
   end
+
+  factory :invalid_fan_profile do
+    user
+    description nil
+  end
 end

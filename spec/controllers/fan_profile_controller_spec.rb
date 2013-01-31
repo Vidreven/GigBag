@@ -2,30 +2,31 @@ require 'spec_helper'
 
 describe FanProfileController do
 
-  # describe "FAN_PROFILE 'create'" do
-  #   before(:each) do
-  #     @user = test_sign_in(Factory(:user))
-  #   end
-  # end
-
   describe "GET 'index'" do
+    it "populates an array of fan profiles" 
+    it "renders the :index view"
+  end
 
-    before (:each) do
-      @user = FactoryGirl.create(:user)
-      sign_in @user
-    end
-  
-    it "should show FAN_PROFILES to signed in users" do
-      get :index
-      response.should be_success
+  describe "GET 'show'" do
+    it "assigns the requested contact to @contact" 
+    it "renders the :show template"
+  end
+
+  describe "GET 'new'" do
+    it "assigns a new Fan Profile to @fan_profile"
+    it "renders the :new template"
+  end
+
+  describe "POST 'create" do
+    context "with valid attributes" do
+      it "saves the new fan Profile to database"
+      it "redirects to home page"
     end
 
-    it "should show each FAN_PROFILE individually" do
-     
-      get :show, :id => 1
-      response.should be_success      
+    context "with invalid attributes" do
+      it "does not save a fan Profile to database"
+      it "renders the :new template again"
     end
-
   end
 
 end
