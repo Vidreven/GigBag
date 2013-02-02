@@ -25,3 +25,11 @@ Feature: Sign up
     Scenario: User signs up with mismatched password and confirmation
       When I sign up with a mismatched password confirmation
       Then I should see a mismatched password message
+
+    @wip
+    Scenario: User confirms email
+      Given I exist as a user
+      When I confirm my account
+      Then I see a successful sign in message
+      When I return to the site
+      Then I should be signed in

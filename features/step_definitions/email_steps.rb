@@ -29,7 +29,7 @@ module EmailHelpers
     # Replace with your a way to find your current email. e.g @current_user.email
     # last_email_address will return the last email address used by email spec to find an email.
     # Note that last_email_address will be reset after each Scenario.
-    last_email_address || "example@example.com"
+    last_email_address || @current_user.email #"example@example.com"
   end
 end
 
@@ -43,6 +43,14 @@ World(EmailHelpers)
 Given /^(?:a clear email queue|no emails have been sent)$/ do
   reset_mailer
 end
+
+When /^I invite a user$/
+  click_link "Invite friends"
+End
+
+Then /^I should see send invitation message$/
+  page.should have_header "Send invitation"
+End
 
 #
 # Check how many emails have been sent/received

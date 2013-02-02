@@ -17,14 +17,6 @@ Feature: Sign in
       When I return to the site
       Then I should be signed in
 
-    @wip
-    Scenario: User confirms email
-      Given I exist as a user
-      When I confirm my account
-      Then I see a successful sign in message
-      When I return to the site
-      Then I should be signed in
-
     Scenario: User enters wrong email
       Given I exist as a user
       And I am not logged in
@@ -38,5 +30,8 @@ Feature: Sign in
       When I sign in with a wrong password
       Then I see an invalid login message
       And I should be signed out
+
+    @wip
+    Scenario: User forgets his password
 
       
