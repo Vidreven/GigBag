@@ -66,6 +66,18 @@ Given /^I exist as an unconfirmed user$/ do
   create_unconfirmed_user
 end
 
+Given /^I am on profile page$/ do
+  create_user
+  sign_in
+  visit user_path(@user)
+end
+
+Given /^I am on invitation page$/ do
+  create_user
+  sign_in
+  visit '/users/invitation/new'
+end
+
 ### WHEN ###
 When /^I sign in with valid credentials$/ do
   create_visitor

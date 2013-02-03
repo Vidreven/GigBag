@@ -3,7 +3,24 @@ Feature: Invite
   A user
   Should be able to invite friends
 
-  Scenario: User sends an invite
-    Given no emails have been sent
+  
+
+  Scenario: Invite option exists
+  	Given I am on profile page
+  	Then I should see invite friends option
+
+  Scenario: Invite page exists
+  	Given I am on profile page
+      And  no emails have been sent
     When I invite a user
     Then I should see send invitation message
+
+  Scenario: User sends an invite
+    Given I am on invitation page
+    When I enter friend's email
+      And I click send button
+    Then I should see invitation sent message
+      And they should receive an email
+  
+  @wip
+  Scenario: Friend receives an invite
