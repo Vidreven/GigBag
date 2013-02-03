@@ -1,12 +1,15 @@
 GigBag::Application.routes.draw do
- # devise_for :users
-  
- authenticated :user do
+  # devise_for :users
+
+  authenticated :user do
     root :to => 'home#index'
   end
   root :to => "home#index"
   devise_for :users
-  resources :users, :fan_profile
+
+  resources :users do
+    resource :fan_profile
+  end
 
   #root :to => 'sessions#new'
   # The priority is based upon order of creation:
@@ -22,8 +25,8 @@ GigBag::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #resources :users
-  
- # match '/login', to: 'sessions#new'
+
+  # match '/login', to: 'sessions#new'
 
   # Sample resource route with options:
   #   resources :products do

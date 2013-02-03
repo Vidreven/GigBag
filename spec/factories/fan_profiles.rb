@@ -4,10 +4,10 @@ require "faker"
 FactoryGirl.define do
   factory :fan_profile do
     user
-    description "{ Faker::Lorem.sentences }"
+    description 'Test123456789'
   end
 
-  factory :invalid_fan_profile do
+  factory :invalid_fan_profile, parent: :fan_profile do
     user
     description nil
   end
