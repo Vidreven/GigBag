@@ -29,7 +29,7 @@ module EmailHelpers
     # Replace with your a way to find your current email. e.g @current_user.email
     # last_email_address will return the last email address used by email spec to find an email.
     # Note that last_email_address will be reset after each Scenario.
-    last_email_address || "example@example.com"
+    last_email_address || @current_user.email #"example@example.com"
   end
 end
 
@@ -44,12 +44,40 @@ Given /^(?:a clear email queue|no emails have been sent)$/ do
   reset_mailer
 end
 
+When /^I invite a user$/ do
+  click_link "Invite friends"
+end
+
+When /^I enter friend's email$/ do
+  fill_in "user_email", with: "friend@example.com"
+end
+
+And /^I click send button$/ do
+  click_button "Send an invitation"
+end
+
+Then /^I should see send invitation message$/ do
+  page.should have_content "Send invitation"
+end
+
+Then /^I should see invite friends option$/ do
+  page.should have_content "Invite friends"
+end
+
+Then /^I should see invitation sent message$/ do
+  page.should have_content "An invitation email has been sent to friend@example.com"
+end
+
 #
 # Check how many emails have been sent/received
 #
 
-Then /^(?:I|they|"([^"]*?)") should receive (an|no|\d+) emails?$/ do |address, amount|
-  unread_emails_for(address).size.should == parse_email_count(amount)
+#Then /^(?:I|they|"([^"]*?)") should receive (an|no|\d+) emails?$/ do |address, amount|
+#  unread_emails_for(address).size.should == parse_email_count(amount)
+#end
+
+Then /^they should receive an email$/ do
+  unread_emails_for("friend@example.com").size.should == parse_email_count(1)
 end
 
 Then /^(?:I|they|"([^"]*?)") should have (an|no|\d+) emails?$/ do |address, amount|
