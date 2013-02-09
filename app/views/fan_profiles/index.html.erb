@@ -1,0 +1,8 @@
+<h3>Fan Profiles</h3>
+<ul class="fan_profiles">
+  <% @fan_profiles.each do |fan_profile| %>
+    <li>
+      <%= link_to user.description, fan_profile %> signed up <%= fan_profile.created_at.to_date %>
+    </li>
+  <% end %>
+</ul>

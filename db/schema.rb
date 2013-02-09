@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(:version => 20130131195210) do
 
+  create_table "fan_profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "fan_profiles", ["user_id"], :name => "index_fan_profiles_on_user_id"
+
   create_table "users", :force => true do |t|
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
@@ -26,9 +35,6 @@ ActiveRecord::Schema.define(:version => 20130131195210) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.string   "name"
     t.string   "unconfirmed_email"
     t.string   "invitation_token",       :limit => 60
@@ -39,7 +45,6 @@ ActiveRecord::Schema.define(:version => 20130131195210) do
     t.string   "invited_by_type"
   end
 
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
