@@ -7,4 +7,9 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  has_one :fan_profile
+
+  def fan_profile_created?
+    !fan_profile.nil? 
+  end
 end
