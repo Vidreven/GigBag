@@ -8,9 +8,12 @@ gem 'rails', '3.2.11'
 
 group :development, :test do
   gem 'sqlite3'
-  gem "rspec-rails"
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'guard-spork'
+  # gem 'vcr'
+  # gem 'webmock'
+  gem 'annotate', '>=2.5.0'
 end
 
 group :production do
@@ -33,14 +36,15 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem "devise", ">= 2.2.2"
+gem 'devise', '>= 2.2.2'
 gem 'devise_invitable', '~> 1.1.0'
-gem "figaro"
+gem 'figaro'
+gem 'lastfm'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-#gem "rspec-rails", :group => [:test, :development]
+#gem 'rspec-rails', :group => [:test, :development]
 
 group :test do
   # Pretty printed test output
@@ -50,10 +54,9 @@ group :test do
   gem 'faker'
   gem 'launchy'
   gem 'rb-inotify', '~> 0.8.8'
-  gem "cucumber-rails", ">= 1.3.0", :require => false
-  gem "database_cleaner", ">= 0.7.2"
-  gem "email_spec", ">= 1.4.0"
-  gem 'annotate', '2.5.0'
+  gem 'cucumber-rails', '>= 1.3.0', :require => false
+  gem 'database_cleaner', '>= 0.7.2'
+  gem 'email_spec', '>= 1.4.0'
 end
 
 # To use Jbuilder templates for JSON

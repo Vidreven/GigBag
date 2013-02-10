@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: fan_profiles
+#
+#  id              :integer          not null, primary key
+#  user_id         :integer
+#  description     :text
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  lastfm_username :string(255)
+#
+
 require 'spec_helper'
 
 
@@ -22,6 +34,14 @@ describe FanProfile do
 
   it "should reject content longer than 100 characters" do
     FactoryGirl.build(:fan_profile, :description => "Test1" * 20 + "a").should_not be_valid
+  end
+
+  it "should reject invalid lastfm_username" do
+    FactoryGirl.build(:fan_profile, :lastfm_username => "Something Invalid").should_not be_valid
+  end
+
+  it "should accept valid lastfm_username" do
+    FactoryGirl.build(:fan_profile).should be_valid
   end
 
   it "is owned by only one user"

@@ -5,6 +5,7 @@ FactoryGirl.define do
   factory :fan_profile do
     user
     description 'Test123456789'
+    lastfm_username 'Vunovati'
   end
 
   factory :invalid_fan_profile, parent: :fan_profile do
