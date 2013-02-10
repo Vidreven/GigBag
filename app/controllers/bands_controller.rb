@@ -1,8 +1,12 @@
 class BandsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
-  
+
   def index
     @bands = Band.all
+  end
+
+  def new
+    @band = Band.new
   end
 
   def create
@@ -33,6 +37,7 @@ class BandsController < ApplicationController
 
   def edit
     @title = "Edit band"
+    @band = Band.find(params[:id])
   end
 
   def destroy

@@ -1,0 +1,12 @@
+<h2>New Band</h2>
+<%= form_for @band, :url => { :action => "create" }, :html => {:class => "form"} do |f| %>
+<div class="field">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :image%>
+  <%= f.text_field :image%>
+</div>
+<%= f.submit "Create Band" %>
+<% end %>

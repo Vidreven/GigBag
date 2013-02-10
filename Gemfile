@@ -11,8 +11,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'guard-spork'
-  # gem 'vcr'
-  # gem 'webmock'
   gem 'annotate', '>=2.5.0'
 end
 
