@@ -11,6 +11,8 @@ GigBag::Application.routes.draw do
     resource :fan_profile
   end
 
+  resources :bands
+
   #root :to => 'sessions#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.

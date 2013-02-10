@@ -1,0 +1,14 @@
+<h3>Bands</h3>
+<ul class="band">
+  <%= link_to 'New Band', new_band_path %>
+  <% @bands.each do |band| %>
+  <li id=<%= "band_#{band.id}" %> >
+    <tr>
+    <%= image_tag band.image, :size=>"128x128" %> <%= link_to band.name, band %> 
+      <td><%= link_to 'Show', band %></td>
+      <td><%= link_to 'Edit', edit_band_path(band) %></td>
+      <td><%= link_to 'Remove', band, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  </li>
+  <% end %>
+</ul>
