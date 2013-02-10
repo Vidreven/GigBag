@@ -4,7 +4,7 @@
   <% @bands.each do |band| %>
   <li id=<%= "band_#{band.id}" %> >
     <tr>
-    <%= link_to band.name, band %> image <%= band.image %>
+    <%= image_tag band.image, :size=>"128x128" %> <%= link_to band.name, band %> 
       <td><%= link_to 'Show', band %></td>
       <td><%= link_to 'Edit', edit_band_path(band) %></td>
       <td><%= link_to 'Remove', band, :confirm => 'Are you sure?', :method => :delete %></td>
