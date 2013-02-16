@@ -43,6 +43,15 @@ describe FanProfilesController do
         post :create, :user_id => @user, :fan_profile => FactoryGirl.attributes_for(:fan_profile)
         response.should redirect_to @user
       end
+
+      it "does not create two profiles for one user" do
+        login_user
+        post :create, :user_id => @user, :fan_profile => FactoryGirl.attributes_for(:fan_profile)
+        expect{
+          post :create, :user_id => @user, :fan_profile => FactoryGirl.attributes_for(:fan_profile, :description => "Desc")
+        }.to_not change(FanProfile, :count)
+        sign_out @user
+      end
     end
 
     context "with invalid attributes" do

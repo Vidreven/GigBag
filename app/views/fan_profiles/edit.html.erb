@@ -1,0 +1,12 @@
+<h2>Edit your fan profile</h2>
+<%= form_for (:fan_profile), :url => { :action => "update" }, :html => {:class => "form"} do |f| %>
+<div class="field">
+  <%= f.label :lastfm_username %>
+  <%= f.text_field :lastfm_username %>
+</div>
+<div class="field">
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+</div>
+<%= f.submit "Update Profile" %>
+<% end %>
