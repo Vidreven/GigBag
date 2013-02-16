@@ -1,0 +1,9 @@
+<% if current_user.fan_profile_created?%>
+<li>
+  <%= link_to 'Edit your fan profile', edit_user_fan_profile_path(current_user), :class => "loginButton small button" %>
+</li>
+<% else %>
+<li>
+  <%= link_to 'Create your fan profile', new_user_fan_profile_path(current_user), :class => "loginButton small button" %>
+</li>
+<% end %>
