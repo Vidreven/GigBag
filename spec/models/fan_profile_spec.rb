@@ -43,6 +43,4 @@ describe FanProfile do
   it "should accept valid lastfm_username" do
     FactoryGirl.build(:fan_profile).should be_valid
   end
-
-  it "is owned by only one user"
 end

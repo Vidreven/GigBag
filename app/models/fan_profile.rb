@@ -23,7 +23,7 @@ def lastfm_profile_exists
     begin
       get_lastfm_user_info
     rescue Lastfm::ApiError => e
-      errors.add(:lastfm_username, "Must be an existing lastfm username")
+      errors.add(:lastfm_username, lastfm_username + " does not exist in Last.fm")
     end
   end
 end
