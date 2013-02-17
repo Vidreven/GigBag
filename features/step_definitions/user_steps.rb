@@ -25,6 +25,10 @@ def delete_user
   @user.destroy unless @user.nil?
 end
 
+def create_admin
+  @admin = FactoryGirl.create(:admin)
+end
+
 def sign_up
   delete_user
   visit '/users/sign_up'
@@ -40,6 +44,13 @@ def sign_in
   visit '/users/sign_in'
   fill_in "user_email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
+  click_button "Sign in"
+end
+
+def sign_in_admin
+  visit '/users/sign_in'
+  fill_in "user_email", :with => @admin[:email]
+  fill_in "user_password", :with => @admin[:password]
   click_button "Sign in"
 end
 
@@ -82,6 +93,11 @@ end
 When /^I sign in with valid credentials$/ do
   create_visitor
   sign_in
+end
+
+When /^I sign in as admin$/ do
+  create_admin
+  sign_in_admin
 end
 
 When /^I sign out$/ do
@@ -157,6 +173,14 @@ Then /^I should be signed out$/ do
   #page.should have_content "Sign up"
   page.should have_content "Login"
   page.should_not have_content "Logout"
+end
+
+Then /^I should not be admin$/ do
+  page.should_not have_link "Panel"
+end
+
+Then /^I should see admin panel$/ do
+  page.should have_link "Panel"
 end
 
 Then /^I see an unconfirmed account message$/ do

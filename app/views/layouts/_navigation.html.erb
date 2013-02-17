@@ -1,6 +1,9 @@
 <ul class="loginButtons button-group">
   <% if user_signed_in? %>
     <%= render :partial => "shared/signed_in_navigation" %>
+    <% if current_user.admin %>
+  		<%= render :partial => "shared/admin_navigation" %>
+  	<% end %>
   <% else %>
     <%= render :partial => "shared/signed_out_navigation" %>
   <% end %>

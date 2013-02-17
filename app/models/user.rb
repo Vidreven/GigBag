@@ -39,4 +39,5 @@ class User < ActiveRecord::Base
   def fan_profile_created?
     !fan_profile.nil? 
   end
+
 end
