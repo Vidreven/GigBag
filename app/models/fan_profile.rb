@@ -12,6 +12,8 @@
 
 class FanProfile < ActiveRecord::Base
   belongs_to :user
+  has_many :fanships
+  has_many :bands, :through => :fanships
   attr_accessible :description, :lastfm_username
 
   validates_length_of :description, :within => 10..100, :on => :create, :message => "must be present"

@@ -14,6 +14,13 @@ group :development, :test do
   gem 'annotate', '>=2.5.0'
 end
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
+
 group :production do
   gem 'pg'
   gem 'thin'
@@ -28,7 +35,7 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
-  
+
   gem 'compass-rails'
   gem 'zurb-foundation'
 end
