@@ -44,12 +44,13 @@ describe BandsController do
         }.to change(Band, :count).by(1)
         sign_out @user
       end
-    end
 
-    it "redirects to band page" do
-      login_user
-      post :create, band: FactoryGirl.attributes_for(:band)
-      response.should redirect_to Band.last
+      it "redirects to band page" do
+        login_user
+        post :create, band: FactoryGirl.attributes_for(:band)
+        response.should redirect_to Band.last
+        sign_out @user
+      end
     end
 
     context "invalid attributes" do

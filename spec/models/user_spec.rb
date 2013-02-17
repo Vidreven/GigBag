@@ -39,7 +39,8 @@ describe User do
   end
 
   it "has a valid factory" do
-    FactoryGirl.create(:user_with_fan_profile)
+    user = FactoryGirl.create(:user_with_fan_profile)
+    user.fan_profile.should_not eq(nil)
   end
 
   it "should create a new instance given a valid attribute" do

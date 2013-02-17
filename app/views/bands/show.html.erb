@@ -4,3 +4,5 @@
 <br>
 <%= @band.image %>
 <%= image_tag @band.image%>
+Fans: <br>
+<%= @band.fan_profiles.map{|profile| profile.user.name} %>
