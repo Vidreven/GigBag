@@ -12,6 +12,11 @@ class BandsController < ApplicationController
   def create
     @band = Band.new(params[:band])
     if @band.save
+      if current_user.fan_profile_created?
+        current_user.fan_profile.bands << @band
+      else
+        flash[:success] = "You need to have a fan profile to become a fan of this band"
+      end
       flash[:success] = "Successfully created a band"
       redirect_to @band
     else
