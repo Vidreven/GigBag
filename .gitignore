@@ -28,3 +28,5 @@ rerun.txt
 #.rvmrc
 # vim
 *.swp
+# simplecov
+coverage
