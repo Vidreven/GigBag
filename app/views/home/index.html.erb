@@ -1,4 +1,8 @@
 <h3>Home</h3>
 <% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
+<p>User: <%=link_to user.name, user %></p>
 <% end %>
+
+<%if user_signed_in? %>
+<%= render 'signed_in_user_home' %>
+<%end %>
