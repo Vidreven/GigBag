@@ -12,7 +12,7 @@ FactoryGirl.define do
   end
 
   factory :random_band, parent: :band do
-    name 
+    name {Faker::Name.first_name}
     image "http://userserve-ak.last.fm/serve/500/58121627/Opeth.png"
   end
 end
