@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :fanship do
-    fan_profile nil
-    band nil
+    fan_profile 
+    band 
   end
 end

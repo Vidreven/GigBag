@@ -17,6 +17,7 @@ class FanProfile < ActiveRecord::Base
   attr_accessible :description, :lastfm_username
 
   validates_length_of :description, :within => 10..100, :on => :create, :message => "must be present"
+  validates_uniqueness_of :lastfm_username
   validate :lastfm_profile_exists, :on => :create
 end
 
