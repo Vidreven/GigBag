@@ -1,0 +1,6 @@
+<h1>Potential events</h1>
+<% @popular_bands.each do |band| %>
+  <p><%=link_to band.name, band %> in Zagreb</p>
+  <%= image_tag band.image%>
+Listened by : <%= band.fan_profiles.count %> GigBag users
+<% end %>

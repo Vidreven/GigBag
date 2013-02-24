@@ -1,0 +1,5 @@
+<% if current_user.fan_profile_created? %>
+<%= render 'reccomended_event_list' %>
+<% else %>
+  <%= link_to "Give us some info about yourself to get recommendations", new_user_fan_profile_path(current_user) %> 
+<% end %>

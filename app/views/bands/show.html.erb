@@ -4,5 +4,11 @@
 <br>
 <%= @band.image %>
 <%= image_tag @band.image%>
-Fans: <br>
-<%= @band.fan_profiles.map{|profile| profile.user.name} %>
+fans: <br>
+<tr>
+  <% @band.fan_profiles.each do |profile| %>
+    <li>
+      <%= link_to profile.user.name, profile.user %>
+    </li>
+  <% end %>
+</tr>
