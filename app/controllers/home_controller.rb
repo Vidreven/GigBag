@@ -2,9 +2,7 @@ class HomeController < ApplicationController
 
   def index
     @users = User.all
-    if (user_signed_in?)
-      reccomend_events @user
-    end
+    reccomend_events @user if user_signed_in?
   end
 
   def reccomend_events(user)
