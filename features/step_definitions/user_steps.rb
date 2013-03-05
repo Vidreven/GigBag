@@ -26,7 +26,9 @@ def delete_user
 end
 
 def create_admin
-  @admin = FactoryGirl.create(:admin)
+  @admin = User.create!(name: "Admin", email: "admin@example.com", password: "administrator", 
+    password_confirmation: "administrator")
+  @admin.toggle!(:admin)
 end
 
 def sign_up
