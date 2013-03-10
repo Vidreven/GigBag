@@ -157,7 +157,7 @@ When /^I edit my account details$/ do
 end
 
 When /^I look at the list of users$/ do
-  visit '/'
+  visit '/users'
 end
 
 When /^I confirm my account$/ do
@@ -232,4 +232,8 @@ end
 Then /^I should see my name$/ do
   create_user
   page.should have_content @user[:name]
+end
+
+Then /^I should be redirected to home page$/ do
+ page.should have_content 'Home'
 end

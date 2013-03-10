@@ -2,4 +2,37 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  need_fan_profile: "You need to have a fan profile to become a fan of this band"
+  band_created: "Successfully created a band"
+  band_not_created: "Unable to create band"
+  band_updated: "Successfully updated band"
+  fan_profile_created: "Successfully created profile"
+  profile_updated: "Successfully updated profile"
+  must_be_present: "must be present"
+  lastfm_not_exist: " does not exist on Last.fm"
+  not_url: "is not a URL"
+  
+  edit_band: "Edit band"
+  new_band: "New band"
+  show: "Show"
+  edit: "Edit"
+  remove: "Remove"
+  are_you_sure: "Are you sure?"
+  create_band: "Create band"
+  create_profile: "Create profile"
+
+  potential_events: "Potential events"
+  in_zagreb: " in Zagreb"
+  listened_by: "Listened by "
+  gigbag_users: " Gigbag users"
+  user_info: "Give us some info about yourself to get recommendations"
+
+  home: "Home"
+  login: "Log in"
+  show_users: "Show users"
+  edit_fan_profile: "Edit your fan profile"
+  create_fan_profile: "Create your fan profile"
+  logout: "Logout"
+  edit_account: "Edit account"
+  view_bands: "View bands"
+  user_deleted: "User deleted"
