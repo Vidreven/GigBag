@@ -5,5 +5,13 @@ Feature: Show Users
 
     Scenario: Viewing users
       Given I exist as a user
+       And I sign in with valid credentials
       When I look at the list of users
-      Then I should see my name
+      Then I should be redirected to home page
+
+    @wip
+    Scenario: Viewing profiles
+      Given I exist as a user
+       And I sign in with valid credentials
+      When I visit other peoples user profiles
+      Then I should be redirected to home page

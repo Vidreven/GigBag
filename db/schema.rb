@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(:version => 20130216163747) do
   add_index "fanships", ["fan_profile_id"], :name => "index_fanships_on_fan_profile_id"
 
   create_table "users", :force => true do |t|
-    t.datetime "created_at",                                           :null => false
-    t.datetime "updated_at",                                           :null => false
-    t.string   "email",                                :default => "", :null => false
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
+    t.string   "email",                                :default => "",    :null => false
     t.string   "encrypted_password",                   :default => ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20130216163747) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.boolean  "admin",                                :default => false
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
