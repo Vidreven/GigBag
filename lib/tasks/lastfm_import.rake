@@ -12,18 +12,22 @@ namespace :lastfm do
       bands.each do |band|
         name = band["name"]
         image = band["image"][2]["content"]
-        
+
         band_record = Band.where(:name => name)
         unless band_record.exists?
           band_record = Band.new(:name => name, :image => image)
-          
-          if band_record.save
-            p "Saved #{name}"
-          end
+
+          p "Saved #{name}" if band_record.save
 
         end
 
-        fan_profile.bands << band_record
+        # TODO check if already a fan of the band
+        if fan_profile.bands.include? band
+          # FIXME
+          p "Already a fan of #{band.name}"
+        else
+          fan_profile.bands << band_record
+        end
       end
     end
   end

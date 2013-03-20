@@ -14,6 +14,7 @@ class BandsController < ApplicationController
     if @band.save
       if current_user.fan_profile_created?
         current_user.fan_profile.bands << @band
+    # TODO: check if user is already fan of the band
       else
         flash[:success] = "You need to have a fan profile to become a fan of this band"
       end
