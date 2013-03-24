@@ -4,13 +4,13 @@
 	<%= tab_item 'How this works?', 'help.html' %>
 </dl>
 
-<ul class="loginButtons button-group">
+<div class="loginButtons">
   <% if user_signed_in? %>
-    <%= render :partial => "shared/signed_in_navigation" %>
-    <% if current_user.admin %>
-  		<%= render :partial => "shared/admin_navigation" %>
-  	<% end %>
-  <% else %>
-    <%= render :partial => "shared/signed_out_navigation" %>
+  <%= render :partial => "shared/signed_in_navigation" %>
+  <% if current_user.admin %>
+  <%= render :partial => "shared/admin_navigation" %>
   <% end %>
-</ul>
+  <% else %>
+  <%= render :partial => "shared/signed_out_navigation" %>
+  <% end %>
+</div>
