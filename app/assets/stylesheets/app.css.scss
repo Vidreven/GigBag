@@ -104,6 +104,12 @@ ul {
 	}
 }
 
+.userInvites {
+	top: 50px;
+	right: 130px;
+	font-size: 1.2em;
+}
+
 #navigation {
 	background-color: $navigationColor;
 	width: 100%;
@@ -111,7 +117,7 @@ ul {
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 	margin-bottom: 5px;
 
-	.logo, .siteTitle, .loginButtons {
+	.logo, .siteTitle, .userButtons, .userInvites {
 		position: absolute;
 	}
 
@@ -132,7 +138,7 @@ ul {
 		background-image: image-url('logo.png');
 	}
 
-	.loginButtons {
+	.userButtons {
 		top: 45px;
 		right: 0px;
 	}
