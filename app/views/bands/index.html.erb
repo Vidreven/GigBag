@@ -1,14 +1,20 @@
 <h3>Bands</h3>
 <ul class="band">
-  <%= link_to 'New Band', new_band_path %>
+  <%= link_to 'New Band', new_band_path, :class => "button margin-bottom" %>
   <% @bands.each do |band| %>
-  <li id=<%= "band_#{band.id}" %> >
-    <tr>
-    <%= image_tag band.image, :size=>"128x128" %> <%= link_to band.name, band %> 
-      <td><%= link_to 'Show', band %></td>
-      <td><%= link_to 'Edit', edit_band_path(band) %></td>
-      <td><%= link_to 'Remove', band, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  </li>
-  <% end %>
-</ul>
+  <li class="smallBox" id=<%= "band_#{band.id}" %> >
+      <div>
+        <%= image_tag band.image, :size=>"128x128" %> 
+        <%= link_to band.name, band, :class => "info" %>
+        <p>
+          Sed feugiat elementum porta. Aliquam porttitor vulputate velit, eget consectetur purus feugiat nec. Phasellus quis lectus vel diam accumsan dictum imperdiet non nibh. Suspendisse rhoncus dui a turpis viverra pulvinar. Praesent sed odio lorem. Nullam ut odio nec lectus adipiscing scelerisque lobortis a massa. Nam sollicitudin ipsum non justo scelerisque quis accumsan ligula venenatis.
+        </p>
+      </div>
+      <div>
+        <%= link_to 'Show', band, :class => "small button" %>
+        <%= link_to 'Edit', edit_band_path(band), :class => "small button" %>
+        <%= link_to 'Remove', band, :confirm => 'Are you sure?', :method => :delete, :class => "small button" %>
+      </div>
+    </li>
+    <% end %>
+  </ul>

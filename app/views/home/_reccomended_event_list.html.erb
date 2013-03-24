@@ -1,6 +1,36 @@
-<h1>Potential events</h1>
-<% @popular_bands.each do |band| %>
-  <p><%=link_to band.name, band %> in Zagreb</p>
-  <%= image_tag band.image%>
-Listened by : <%= band.fan_profiles.count %> GigBag users
-<% end %>
+<!--<h3>Potential events</h3>
+<div id="featured">
+	<% @popular_bands.each do |band| %>
+	<%= image_tag band.image %>
+	<% end %>
+</div>
+<script type="text/javascript">
+$(window).load(function() {
+	$('#featured').orbit({
+     animation: 'horizontal-slide',          // fade, horizontal-slide, vertical-slide, horizontal-push
+     animationSpeed: 500,                	// how fast animtions are
+     timer: true, 			 			// true or false to have the timer
+     advanceSpeed: 8000, 				// if timer is enabled, time between transitions 
+     pauseOnHover: false, 		 		// if you hover pauses the slider
+     startClockOnMouseOut: false, 	 		// if clock should start on MouseOut
+     startClockOnMouseOutAfter: 1000, 	 	// how long after MouseOut should the timer start again
+     directionalNav: true, 		 		// manual advancing directional navs
+     captions: true, 			 		// do you want captions?
+     captionAnimation: 'fade', 		 	// fade, slideOpen, none
+     captionAnimationSpeed: 800, 	 		// if so how quickly should they animate in
+     bullets: false,			 		// true or false to activate the bullet navigation
+     bulletThumbs: false,		 		// thumbnails for the bullets
+     bulletThumbLocation: '',				// location from this file where thumbs will be
+     afterSlideChange: function(){} 	 	// empty function 
+});
+});
+</script>-->
+
+<h3>Potential events</h3>
+<div>
+     <% @popular_bands.each do |band| %>
+     <p><%=link_to band.name, band %> in Zagreb</p>
+     <%= image_tag band.image %>
+     <span class="info"><div class="foundicon-mic" />Listened by : <%= band.fan_profiles.count %> GigBag users</span>
+     <% end %>
+</div>
