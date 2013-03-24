@@ -107,7 +107,7 @@ ul {
 #navigation {
 	background-color: $navigationColor;
 	width: 100%;
-	height: $logoHeight + 10;
+	height: $logoHeight + 40;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 	margin-bottom: 5px;
 
@@ -117,16 +117,16 @@ ul {
 
 	.siteTitle {
 		top: 40px;
-		left: 90px;
+		left: 70px;
 		vertical-align: center;
 		font-family: $titleFont, sans-serif;
 		font-size: 2.5em;
 		color: $defaultColor;
-		text-shadow: -1px -1px $textColor, 2px 2px #333;
+		text-shadow: 2px 2px $textColor, 2px 2px #333;
 	}
 
 	.logo {
-		top: 5px;
+		top: 15px;
 		width: $logoWidth;
 		height: $logoHeight;
 		background-image: image-url('logo.png');
