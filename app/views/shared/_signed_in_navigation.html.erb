@@ -1,9 +1,14 @@
-<li>
-	<%= link_to 'Logout', destroy_user_session_path, :method=>'delete', :class => "small button" %>        
-</li>
-<li>
-	<%= link_to 'Profile', user_path(current_user), :class => "loginButton small button" %>
-<li>
-	<%= link_to 'Edit account', edit_user_registration_path, :class => "loginButton small button" %>
-</li>
-<%= render :partial => 'shared/fan_profile_managment' %>
+<div href="#" class="large button dropdown foundicon-settings">
+
+	<ul>
+		<li>
+			<%= link_to 'Logout', destroy_user_session_path, :method=>'delete'%>        
+		</li>
+		<li>
+			<%= link_to 'Profile', user_path(current_user) %>
+		<li>
+			<%= link_to 'Edit account', edit_user_registration_path %>
+		</li>
+		<%= render :partial => 'shared/fan_profile_managment' %>
+	</ul>
+</div>
