@@ -6,14 +6,13 @@
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
   <meta charset="utf-8" />
-  
   <!-- Uncomment to make IE8 render like IE7 -->
   <!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
   
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "GigBag" %></title>
   
   <!-- Included CSS Files -->
   <%= stylesheet_link_tag    "application" %>
@@ -24,20 +23,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="home index">
-  <%= render 'layouts/sidebar' %>
+  
   <div id="container" class="container">
     <header>
       <div id="navigation" class="row">
         <div class="ten columns">
           <a href="/" class="logo"></a>
-          <div class="siteTitle">GIGBAG</div>
+          <div class="siteTitle">GigBag</div>
           <%= render 'layouts/navigation' %>
         </div>
       </div>
       <%= render 'layouts/messages' %>
     </header>
     <div class="row">
-      <div class="box eight columns centered">
+      <div class="box ten columns centered">
         <div id="main" role="main">
           <%= yield %>
         </div>

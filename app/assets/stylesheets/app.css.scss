@@ -1,10 +1,13 @@
-// Your custom settings file to override Foundation defaults
+@import "variables";
 @import "settings";
-
-// Comment out this import if you are customizing you imports below
 @import "foundation";
-
 @import "animate";
+@import "general_foundicons";
+
+/*Fonts*/
+@each $webfont in Oranienbaum, Anton {
+	@import url("http://fonts.googleapis.com/css?family=#{$webfont}");
+}
 
 // ----------------------------------------
 // Import specific parts of Foundation by commenting the import "foundation"
@@ -51,11 +54,6 @@
 // Media Queries Overrides
 // @import "foundation/components/modules/mqueries";
 
-$logoWidth: 60px;
-$logoHeight: 111px;
-$backgroundColor: #CCFFFF;
-$containerColor: $mainColor;
-
 /* Functions */
 @function getColumnsWidth($numberOfColumns) {
 	@return $rowWidth/$totalColumns*$numberOfColumns;
@@ -75,8 +73,17 @@ $containerColor: $mainColor;
 body {
 	background-color: $backgroundColor;
 	background-image: image-url('noisy-texture.png');
-	color: $mainColor;
+	color: $textColor;
+	font-family: $defaultFont, sans-serif;
 	font-size: 100%;
+}
+
+h1,h2,h3 {
+	font-family: $defaultFont, sans-serif;
+}
+
+ul {
+	list-style-type: none;
 }
 
 .sidebar {
@@ -89,17 +96,20 @@ body {
 
 	img:hover {
 		-webkit-transition: all .25s linear;
-		   -moz-transition: all .25s linear;
-		    -ms-transition: all .25s linear;
-		     -o-transition: all .25s linear;
-		        transition: all .25s linear;
+		-moz-transition: all .25s linear;
+		-ms-transition: all .25s linear;
+		-o-transition: all .25s linear;
+		transition: all .25s linear;
 		opacity: 0.5;
 	}
 }
 
 #navigation {
-	width: getColumnsWidth(6);
-	height: $logoHeight+40;
+	background-color: $navigationColor;
+	width: 100%;
+	height: $logoHeight + 10;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	margin-bottom: 5px;
 
 	.logo, .siteTitle, .loginButtons {
 		position: absolute;
@@ -109,21 +119,21 @@ body {
 		top: 40px;
 		left: 90px;
 		vertical-align: center;
-		font-family: 'Stereofidelic', Arial, sans-serif;
-		font-size: 3.5em;
-		font-weight: bold;
-		color: $mainColor;
+		font-family: $titleFont, sans-serif;
+		font-size: 2.5em;
+		color: $defaultColor;
+		text-shadow: -1px -1px $textColor, 2px 2px #333;
 	}
 
 	.logo {
-		top: 10px;
+		top: 5px;
 		width: $logoWidth;
 		height: $logoHeight;
 		background-image: image-url('logo.png');
 	}
 
 	.loginButtons {
-		top: 95px;
+		top: 45px;
 		right: 0px;
 	}
 
@@ -135,14 +145,19 @@ body {
 		font-size: 14pt;
 	}
 
+	.tabs {
+		position: relative;
+		top: 70px;
+		left: $logoWidth + 140;
+	}
 }
 
 .box {
-	color: $backgroundColor;
+	color: $textColor;
 	padding-bottom: 20px;
-	background-color: $containerColor;
+	background-color: $defaultColor;
 	
-	@include borderRadius(5px, $containerColor);
+	@include borderRadius(5px, $backgroundColor);
 
 	h1, h2, h3, p {
 		color: inherit;
@@ -160,13 +175,28 @@ body {
 	form {
 
 		legend {
-			background-color: $containerColor;
+			background-color: $backgroundColor;
 		}
 
 		label {
 			color: inherit;
 		}
 	}
+
+	.button {
+		border-radius: 5px;
+		background-color: $replacementColor;
+	}
+}
+
+.smallBox {
+	@extend .box;
+	color: $textColor;
+	@include borderRadius(5px, lighten($defaultColor, 5%));
+	background-color: lighten($defaultColor, 10%);
+	padding: 10px;
+
+	margin-bottom: 10px;
 }
 
 .row {
@@ -184,4 +214,15 @@ footer {
 	&:hover {
 		color: darken(white, 30%);
 	}
+}
+
+.info {
+	font-size: 1.2em;
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.margin-bottom {
+	margin-bottom: 10px;
 }
