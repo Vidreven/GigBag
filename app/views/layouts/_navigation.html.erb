@@ -1,3 +1,9 @@
+<dl class="tabs">
+	<%= tab_item 'Home', root_path %>
+	<%= tab_item 'View bands', bands_path %>
+	<%= tab_item 'How this works?', 'help.html' %>
+</dl>
+
 <ul class="loginButtons button-group">
   <% if user_signed_in? %>
     <%= render :partial => "shared/signed_in_navigation" %>
