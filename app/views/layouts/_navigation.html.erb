@@ -5,11 +5,9 @@
   <%= tab_item 'About', pages_about_path %>
 </dl>
 
-
-<%= render :partial => "shared/user_welcome" if user_signed_in? %>
-
 <div class="userButtons">
   <% if user_signed_in? %>
+  <%= render :partial => "shared/user_welcome" %>
   <%= render :partial => "shared/signed_in_navigation" %>
   <% if current_user.admin %>
   <%= render :partial => "shared/admin_navigation" %>
