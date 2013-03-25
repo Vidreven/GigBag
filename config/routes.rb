@@ -1,4 +1,8 @@
 GigBag::Application.routes.draw do
+  get "pages/help"
+
+  get "pages/about"
+
   # devise_for :users
 
   authenticated :user do
