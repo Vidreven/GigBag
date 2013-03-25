@@ -1,14 +1,16 @@
 <h1>
   <%= @band.name %> 
 </h1>
-<br>
-<%= @band.image %>
 <%= image_tag @band.image%>
-fans: <br>
-<tr>
+<br />
+<br />
+<em>Fans:</em>
+<br />
+<br />
+<ul>
   <% @band.fan_profiles.each do |profile| %>
     <li>
       <%= link_to profile.user.name, profile.user %>
     </li>
   <% end %>
-</tr>
+</ul>
