@@ -18,7 +18,6 @@ describe "Bands" do
       within 'h1' do
         page.should have_content "Example"
       end
-      page.should have_content "http://userserve-ak.last.fm/serve/500/29534991/Opeth+4.jpg"
       Warden.test_reset!
     end
 
