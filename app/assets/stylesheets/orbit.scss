@@ -1,3 +1,5 @@
+@import "variables";
+
 /* CSS for jQuery Orbit Plugin 1.2.3
  * www.ZURB.com/playground
  * Copyright 2010, ZURB
@@ -9,9 +11,9 @@
 /* PUT IN YOUR SLIDER ID AND SIZE TO MAKE LOAD BEAUTIFULLY
    ================================================== */
 #featured { 
-	width: 940px;
-	height: 450px;
-	background: #000 url('loading.gif') no-repeat center center;
+	width: 600px;
+	height: 300px;
+	background: lighten($defaultColor, 5%) url('loading.gif') no-repeat center center;
 	overflow: hidden; }
 #featured>img,  
 #featured>div,
@@ -24,13 +26,13 @@
    ================================================== */
 
 div.orbit-wrapper {
-    width: 1px;
-    height: 1px;
+    width: 600px;
+    height: 300px;
     position: relative; }
 
 div.orbit {
-    width: 1px;
-    height: 1px;
+    width: 600px;
+    height: 300px;
     position: relative;
     overflow: hidden }
 
@@ -46,14 +48,16 @@ div.orbit>a {
     top: 0;
     left: 0;
     line-height: 0; 
-    display: none; }
+    display: none;
+    width: 600px;
+    height: 300px }
 
 .orbit>div {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%; }
+    width: 600px;
+    height: 300px; }
 
 /* Note: If your slider only uses content or anchors, you're going to want to put the width and height declarations on the ".orbit>div" and "div.orbit>a" tags in addition to just the .orbit-wrapper */
 
