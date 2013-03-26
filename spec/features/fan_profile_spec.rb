@@ -11,7 +11,6 @@ describe "FanProfile" do
       expect {
         click_link 'Create your fan profile'
         fill_in "Lastfm username", with: "Vunovati"
-        fill_in "Description", with: "Test description"
         click_button 'Create Profile'
       }.to change(FanProfile, :count).by(1)
       Warden.test_reset!

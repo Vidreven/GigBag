@@ -150,9 +150,5 @@ describe User do
       @user.fan_profile_created?.should be_false
     end
 
-    it "should be marked as having a fan profile if profile is created" do
-      @user.create_fan_profile({:description => "test"})
-      @user.fan_profile_created?.should be_true
-    end
   end
 end
