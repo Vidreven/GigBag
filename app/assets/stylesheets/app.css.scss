@@ -72,6 +72,7 @@ ul {
 	height: $logoHeight + 40;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 	margin-bottom: 5px;
+	padding-left: 20px;
 
 	.logo, .siteTitle, .userButtons {
 		position: absolute;
@@ -79,7 +80,7 @@ ul {
 
 	.siteTitle {
 		top: 40px;
-		left: 70px;
+		left: 75px;
 		vertical-align: center;
 		font-family: $titleFont, sans-serif;
 		font-size: 2.5em;
@@ -95,6 +96,7 @@ ul {
 	}
 
 	.userButtons {
+		padding-right: 30px;
 		top: 45px;
 		right: 0px;
 	}
