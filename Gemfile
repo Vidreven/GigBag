@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+# ruby '1.9.3'
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
@@ -38,6 +38,7 @@ group :assets do
 
   gem 'compass-rails'
   gem 'zurb-foundation', '3.2.5'
+  gem 'chosen-rails'
 end
 
 gem 'jquery-rails'

@@ -1,8 +1,12 @@
 <h2>Create your fan profile</h2>
-<%= form_for @fan_profile, :url => { :action => "create" }, :html => {:class => "form"} do |f| %>
+<%= form_for @fan_profile, :url => { :action => "create" }, :html => {:class => "form chzn-select"} do |f| %>
 <div class="field">
   <%= f.label :lastfm_username %>
   <%= f.text_field :lastfm_username %>
 </div>
+  <div class="field">
+    <%= f.label :band_ids, "Bands" %><br />
+    <%= f.collection_select :band_ids, Band.order(:name), :id, :name, {}, {multiple: true} %>
+  </div>
 <%= f.submit "Create Profile" %>
 <% end %>

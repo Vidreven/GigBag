@@ -13,7 +13,7 @@ class Band < ActiveRecord::Base
   has_many :fanships
   has_many :fan_profiles, :through => :fanships
   attr_accessible :image, :name
-  
+
   validates :name, :presence => true
   validates :image, :url => true
 
