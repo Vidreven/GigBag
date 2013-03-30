@@ -17,6 +17,23 @@ class FanProfile < ActiveRecord::Base
   has_many :bands, :through => :fanships
   validate :lastfm_profile_exists, :on => :create
 
+  attr_writer :band_list
+  attr_accessible :band_list
+
+  before_save :assign_bands
+
+  def band_list
+    @band_list || bands.map(&:name).join(", ")
+  end
+
+  def assign_bands
+    if @band_list
+      self.bands = @band_list.split(",").uniq.map do |name|
+        Band.where(:name => name).first
+      end
+    end
+  end
+
   def lastfm_profile_exists
     if !lastfm_username.nil?
       begin

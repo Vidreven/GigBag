@@ -1,0 +1,13 @@
+<%= form_for ([@user, @fan_profile]) do |f| %>
+<div class="field">
+  <%= f.label :lastfm_username %>
+  <%= f.text_field :lastfm_username %>
+</div>
+<div class="field">
+  <%= f.label :band_list, "Bands" %><br />
+  <%= f.text_field :band_list, :autocomplete => 'off', :data => Band.get_bands_list.to_json, :class => "band_selection_field" %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

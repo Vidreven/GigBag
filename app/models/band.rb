@@ -20,4 +20,11 @@ class Band < ActiveRecord::Base
   def popularity
     fan_profiles.count
   end
+
+  def self.get_bands_list
+    Band.all.map do |band|
+      band.name
+    end
+  end
+
 end

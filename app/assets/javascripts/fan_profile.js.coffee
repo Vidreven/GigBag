@@ -2,4 +2,4 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-  $('#fan_profile_band_ids').chosen()
+  $(".band_selection_field").select2 bands: $(".band_selection_field").data("bands")

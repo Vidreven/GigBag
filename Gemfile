@@ -38,10 +38,10 @@ group :assets do
 
   gem 'compass-rails'
   gem 'zurb-foundation', '3.2.5'
-  gem 'chosen-rails'
 end
 
 gem 'jquery-rails'
+gem 'select2-rails'
 gem 'devise', '>= 2.2.2'
 gem 'devise_invitable', '~> 1.1.0'
 gem 'figaro'
@@ -54,7 +54,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :test do
   # Pretty printed test output
-  gem 'simplecov', :require => false
+# gem 'simplecov', :require => false
   gem 'turn', :require => false
   gem 'capybara'
   gem 'guard-rspec'
