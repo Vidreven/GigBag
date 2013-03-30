@@ -182,7 +182,8 @@ Then /^I should not be admin$/ do
 end
 
 Then /^I should see admin panel$/ do
-  page.should have_link "Panel"
+  #page.should have_link "Admin panel"
+  page.should have_selector('href', title: 'Admin panel')
 end
 
 Then /^I see an unconfirmed account message$/ do
