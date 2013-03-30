@@ -21,19 +21,11 @@ describe FanProfile do
 
   it "should be created by a signed in user" do
     @test_user = FactoryGirl.create(:user)
-    @test_user.build_fan_profile({:description => "Test123456789"})
+    @test_user.build_fan_profile({:lastfm_username => "Vunovati"})
   end
 
-  it "should reject profiles without description" do
-    FactoryGirl.build(:fan_profile, :description => nil).should_not be_valid
-  end
-
-  it "should reject content shorter than 10 characters" do
-    FactoryGirl.build(:fan_profile, :description => "Test").should_not be_valid
-  end
-
-  it "should reject content longer than 100 characters" do
-    FactoryGirl.build(:fan_profile, :description => "Test1" * 20 + "a").should_not be_valid
+  it "should reject profiles without lastfm_username" do
+    FactoryGirl.build(:invalid_fan_profile).should_not be_valid
   end
 
   it "should reject invalid lastfm_username" do

@@ -2,6 +2,7 @@ class FanProfilesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
 
   def new
+    @user = User.find(params[:user_id])
     @fan_profile = FanProfile.new
   end
 

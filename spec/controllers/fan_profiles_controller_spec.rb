@@ -93,9 +93,9 @@ describe FanProfilesController do
 
       it "changes @fan_profile attributes" do
         put :update, user_id: @fan_profile,
-          :fan_profile => FactoryGirl.attributes_for(:fan_profile, description: "Changed description")
+          :fan_profile => FactoryGirl.attributes_for(:fan_profile, lastfm_username: "vidreven")
         @fan_profile.reload
-        @fan_profile.description.should eq("Changed description")
+        @fan_profile.lastfm_username.should eq("vidreven")
       end
 
       it "redirects to the updated fan_profile" do

@@ -10,6 +10,7 @@
 #
 
 class Fanship < ActiveRecord::Base
+  attr_accessible :fan_profile_id, :band_id
   belongs_to :fan_profile
   belongs_to :band
 end

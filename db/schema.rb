@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216163747) do
+ActiveRecord::Schema.define(:version => 20130326193357) do
 
   create_table "bands", :force => true do |t|
     t.string   "name"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(:version => 20130216163747) do
 
   create_table "fan_profiles", :force => true do |t|
     t.integer  "user_id"
-    t.text     "description"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "lastfm_username"
