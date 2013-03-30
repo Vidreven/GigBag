@@ -2,4 +2,4 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-  $(".band_selection_field").select2 bands: $(".band_selection_field").data("bands")
+  $(".band_selection_field").select2 tags: $(".band_selection_field").data("bands")
