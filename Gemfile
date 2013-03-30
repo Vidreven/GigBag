@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+# ruby '1.9.3'
 gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
@@ -41,10 +41,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'select2-rails'
 gem 'devise', '>= 2.2.2'
 gem 'devise_invitable', '~> 1.1.0'
 gem 'figaro'
 gem 'lastfm'
+gem 'simple_form'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

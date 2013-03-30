@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require foundation
 //= require foundation/app
+//= require select2
 //= require_tree .
