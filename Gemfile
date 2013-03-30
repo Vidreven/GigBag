@@ -55,7 +55,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :test do
   # Pretty printed test output
-# gem 'simplecov', :require => false
+  gem 'simplecov', :require => false
   gem 'turn', :require => false
   gem 'capybara'
   gem 'guard-rspec'

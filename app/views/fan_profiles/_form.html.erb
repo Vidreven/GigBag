@@ -1,6 +1,6 @@
-<%= simple_form_for ([@user, @fan_profile]) do |f| %>
+<%= simple_form_for ([@user, @fan_profile]), url: user_fan_profile_path(@user) do |f| %>
 <%= f.input :lastfm_username %>
-<%= f.input :band_list, :input_html => { :autocomplete => 'off', :data => { :bands => Band.get_bands_list.to_json }, :class => "band_selection_field" } %>
+<%= f.input :band_list, :size=> 300, :input_html => { :autocomplete => 'off', :data => { :bands => Band.get_bands_list.to_json }, :class => "band_selection_field" } %>
  <div class="actions">
   <%= f.submit %>
 </div>
