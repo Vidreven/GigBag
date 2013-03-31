@@ -1,33 +1,23 @@
 require 'spec_helper'
 
 describe Event do
-  before {@event = FactoryGirl.create(:event)}
+  let(:event) {FactoryGirl.create :event}
 
-  subject {@event}
+  #subject {:event}
 
-  it {should respond_to (:name)}
+  it {should respond_to(:name)}
   it {should respond_to(:event_date)}
   it {should respond_to(:event_time)}
 
-  it {should be_valid}
+  #it {should be_valid}
 
-  describe "rejects events without name" do
-  	before {@event.name = nil}
-  	it {should_not be_valid}
+  it "must have a name" do
+    #FactoryGirl.build(:event, name: nil).should_not be_valid
+    expect(FactoryGirl.build(:event, name: nil)).not_to be_valid
   end
 
-  describe "event names can't be too long" do
-    before {@event.name = "a" * 51}
-    it {should_not be_valid}
-  end
-
-  describe "when event already exists" do
-    before do
-      same_event = @event.dup
-      same_event.save
-    end
-
-    it {should_not be_valid}
+  it "name can't be too long" do
+    expect(FactoryGirl.build(:event, name: "a" * 51)).not_to be_valid
   end
  
 end

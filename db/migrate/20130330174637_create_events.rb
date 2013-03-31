@@ -7,5 +7,4 @@ class CreateEvents < ActiveRecord::Migration
 
       t.timestamps
     end
-  end
 end
