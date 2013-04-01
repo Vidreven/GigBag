@@ -2,16 +2,16 @@
 
 	<ul>
 		<li>
-			<%= link_to 'Logout', destroy_user_session_path, :method=>'delete'%>        
+			<%= link_to t('logout'), destroy_user_session_path, :method=>'delete'%>        
 		</li>
 		<li>
-			<%= link_to 'Profile', user_path(current_user) %>
+			<%= link_to t('profile'), user_path(current_user) %>
 		<li>
-			<%= link_to 'Edit account', edit_user_registration_path %>
+			<%= link_to t('edit_account'), edit_user_registration_path %>
 		</li>
 		<%= render :partial => 'shared/fan_profile_managment' %>
 		<li>
-			<%= link_to "Send invite (" + current_user.invitation_limit.to_s + ")", new_user_invitation_path  %> 
+			<%= link_to t('invite') + current_user.invitation_limit.to_s + ")", new_user_invitation_path  %> 
 		</li>
 	</ul>
 </div>
