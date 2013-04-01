@@ -46,14 +46,14 @@ def sign_in
   visit '/users/sign_in'
   fill_in "user_email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
-  click_button "Sign in"
+  click_button "Log in"
 end
 
 def sign_in_admin
   visit '/users/sign_in'
   fill_in "user_email", :with => @admin[:email]
   fill_in "user_password", :with => @admin[:password]
-  click_button "Sign in"
+  click_button "Log in"
 end
 
 ### GIVEN ###
