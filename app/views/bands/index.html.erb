@@ -1,6 +1,6 @@
-<h3>Bands</h3>
+<h3><%= t 'bands' %></h3>
 <ul class="band">
-  <%= link_to 'New Band', new_band_path, :class => "button margin-bottom" %>
+  <%= link_to t('new_band'), new_band_path, :class => "button margin-bottom" %>
   <% @bands.each do |band| %>
   <li class="smallBox" id=<%= "band_#{band.id}" %> >
       <div>
@@ -11,9 +11,9 @@
         </p>
       </div>
       <div>
-        <%= link_to 'Show', band, :class => "small button" %>
-        <%= link_to 'Edit', edit_band_path(band), :class => "small button" %>
-        <%= link_to 'Remove', band, :confirm => 'Are you sure?', :method => :delete, :class => "small button" %>
+        <%= link_to t('show'), band, :class => "small button" %>
+        <%= link_to t('edit'), edit_band_path(band), :class => "small button" %>
+        <%= link_to t('remove'), band, :confirm => t('are_you_sure'), :method => :delete, :class => "small button" %>
       </div>
     </li>
     <% end %>

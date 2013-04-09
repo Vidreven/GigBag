@@ -16,12 +16,12 @@ class BandsController < ApplicationController
         current_user.fan_profile.bands << @band
     # TODO: check if user is already fan of the band
       else
-        flash[:success] = "You need to have a fan profile to become a fan of this band"
+        flash[:success] = t 'need_fan_profile' #"You need to have a fan profile to become a fan of this band"
       end
-      flash[:success] = "Successfully created a band"
+      flash[:success] = t 'band_created' #"Successfully created a band"
       redirect_to @band
     else
-      flash[:error] = "Unable to create band"
+      flash[:error] = t 'band_not_created' #"Unable to create band"
       render :new
     end
   end
@@ -34,7 +34,7 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
     @band.update_attributes(params[:band])
     if @band.save
-      flash[:success] = "Successfully updated band"
+      flash[:success] = t 'band_updated' #"Successfully updated band"
       redirect_to @band
     else
       render :edit

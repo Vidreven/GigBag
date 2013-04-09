@@ -39,7 +39,7 @@ class FanProfile < ActiveRecord::Base
       begin
         get_lastfm_user_info
       rescue Lastfm::ApiError => e
-        errors.add(:lastfm_username, lastfm_username + " does not exist in Last.fm")
+        errors.add(:lastfm_username, lastfm_username + I18n.t('lastfm_not_exist'))
       end
     end
   end
