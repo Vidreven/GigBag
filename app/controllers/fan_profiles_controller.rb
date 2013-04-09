@@ -10,7 +10,7 @@ class FanProfilesController < ApplicationController
     @user = current_user
     @fan_profile = @user.build_fan_profile(params[:fan_profile])
     if @fan_profile.save
-      flash[:success] = "Successfully created profile"
+      flash[:success] = t 'fan_profile_created' #"Successfully created profile"
       @user.fan_profile = @fan_profile
       redirect_to @user
     else
@@ -25,7 +25,7 @@ class FanProfilesController < ApplicationController
   end
 
   def edit
-    @title = "Edit profile"
+    @title = t 'edit_profile' #"Edit profile"
     @user = User.find(params[:user_id])
     @fan_profile = @user.fan_profile
   end
@@ -36,7 +36,7 @@ class FanProfilesController < ApplicationController
     @fan_profile.update_attributes(params[:fan_profile])
     if @fan_profile.save
       @user.fan_profile = @fan_profile
-      flash[:success] = "Successfully updated profile"
+      flash[:success] = t 'profile_updated' #"Successfully updated profile"
       redirect_to @user
     else
       render 'edit'

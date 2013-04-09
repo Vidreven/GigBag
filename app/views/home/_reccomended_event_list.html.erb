@@ -1,10 +1,10 @@
-<h3>Potential events</h3>
+<h3><%= t 'potential_events' %></h3>
 <div id="featured">
      <% @popular_bands.each do |band| %>
      <div class="content recommendedEvent">
-          <h3><%=link_to band.name, band %> in Zagreb</h3>
+          <h3><%=link_to band.name, band %> <%= t 'in_zagreb' %></h3>
           <%= image_tag band.image %>
-          <div class="listeners"><div class="foundicon-mic"></div>Listened by : <%= band.fan_profiles.count %> GigBag users</div>
+          <div class="listeners"><div class="foundicon-mic"></div><%= t 'listened_by' %> <%= band.fan_profiles.count %> <%= t 'gigbag_users' %></div>
      </div>
      <% end %>
 </div>

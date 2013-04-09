@@ -1,4 +1,3 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
-<p><%= link_to "Invite friends", new_user_invitation_path  %> (<%= @user.invitation_limit %> invites left) </p>
+<h3><%= t 'user_profile' %></h3>
+<p><%= t 'user_profile' %>: <%= @user.name %></p>
+<p><%= t 'user_email' %>: <%= @user.email if @user.email %></p>

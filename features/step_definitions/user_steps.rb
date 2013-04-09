@@ -46,14 +46,14 @@ def sign_in
   visit '/users/sign_in'
   fill_in "user_email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
-  click_button "Sign in"
+  click_button "Log in"
 end
 
 def sign_in_admin
   visit '/users/sign_in'
   fill_in "user_email", :with => @admin[:email]
   fill_in "user_password", :with => @admin[:password]
-  click_button "Sign in"
+  click_button "Log in"
 end
 
 ### GIVEN ###
@@ -173,7 +173,7 @@ end
 
 Then /^I should be signed out$/ do
   #page.should have_content "Sign up"
-  page.should have_content "Login"
+  page.should have_content "Log in"
   page.should_not have_content "Logout"
 end
 
@@ -182,7 +182,8 @@ Then /^I should not be admin$/ do
 end
 
 Then /^I should see admin panel$/ do
-  page.should have_link "Panel"
+  #page.should have_link "Admin panel"
+  page.should have_selector('href', title: 'Admin panel')
 end
 
 Then /^I see an unconfirmed account message$/ do

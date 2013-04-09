@@ -1,4 +1,4 @@
-<h2>Edit Band</h2>
+<h2><%= t 'edit_band' %></h2>
 <%= form_for @band, :url => { :action => "update" }, :html => {:class => "form"} do |f| %>
 <div class="field">
   <%= f.label :name %>
@@ -8,5 +8,5 @@
   <%= f.label :image%>
   <%= f.text_field :image%>
 </div>
-<%= f.submit "Edit Band", :class => "small button" %>
+<%= f.submit t('edit_band'), :class => "small button" %>
 <% end %>
