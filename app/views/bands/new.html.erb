@@ -1,12 +1,2 @@
 <h2><%= t 'new_band' %></h2>
-<%= form_for @band, :url => { :action => "create" }, :html => {:class => "form"} do |f| %>
-<div class="field">
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</div>
-<div class="field">
-  <%= f.label :image%>
-  <%= f.text_field :image%>
-</div>
-<%= f.submit t('create_band'), :class => "small button" %>
-<% end %>
+<%= render 'form' %>
