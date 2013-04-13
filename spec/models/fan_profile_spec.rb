@@ -35,4 +35,19 @@ describe FanProfile do
   it "should accept valid lastfm_username" do
     FactoryGirl.build(:fan_profile).should be_valid
   end
+
+  describe "after_save" do
+    it "creates bands" do
+      expect {
+        @fan_profile = FactoryGirl.build(:fan_profile)
+        @fan_profile.save!
+      }.to change{ Band.all.count }.by(50)
+    end
+    it "creates fanships" do
+      expect {
+        @fan_profile = FactoryGirl.build(:fan_profile)
+        @fan_profile.save!
+      }.to change{ Fanship.all.count }.by(50)
+    end
+  end
 end

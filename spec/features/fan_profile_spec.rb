@@ -28,6 +28,7 @@ describe "FanProfile" do
       expect {
         click_link 'Edit your fan profile'
         fill_in "Lastfm username", with: "vidreven"
+        fill_in "Band list", with: "Opeth"
         click_button 'Update Fan profile'
       }.to_not change(FanProfile, :count).by(1)
       Warden.test_reset!
