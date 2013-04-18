@@ -22,12 +22,14 @@ describe "FanProfile" do
   describe "Manage Fan profile" do
     it "Enables editing for users who have fan profiles" do
       user = FactoryGirl.create(:user_with_fan_profile, :email => "someone.new@somewhere.com")
+      band = FactoryGirl.create(:band)
       fan_profile = FactoryGirl.create(:fan_profile, :lastfm_username => "Vidreven", :user_id => user.id)
       login_as(user, :scope => :user)
       visit root_path
       expect {
         click_link 'Edit your fan profile'
         fill_in "Lastfm username", with: "vidreven"
+        fill_in "Band list", with: band.name
         click_button 'Update Fan profile'
       }.to_not change(FanProfile, :count).by(1)
       Warden.test_reset!
