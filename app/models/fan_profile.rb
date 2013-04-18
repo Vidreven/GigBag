@@ -9,7 +9,6 @@
 #  updated_at      :datetime         not null
 #  lastfm_username :string(255)
 #
-require 'lastfm'
 
 class FanProfile < ActiveRecord::Base
   attr_accessible :lastfm_username, :band_ids
@@ -22,7 +21,7 @@ class FanProfile < ActiveRecord::Base
   attr_accessible :band_list
 
   before_save :assign_bands
-  after_save :create_non_existing_bands_from_lastfm_profile
+  # after_save :create_non_existing_bands_from_lastfm_profile
 
   def band_list
     @band_list || bands.map(&:name).join(", ")
@@ -56,8 +55,9 @@ class FanProfile < ActiveRecord::Base
     bands_from_lastfm.each do |band|
       name = band["name"]
       image = band["image"][2]["content"]
-      band_record = Band.new(:name => name, :image => image)
-      band_record.save
+      # band_record = Band.new(:name => name, :image => image)
+      band_record = Band.find_or_create_by_name(name, :image => image)
+      # band_record.save
       self.bands << band_record
     end unless bands_from_lastfm.nil?
   end

@@ -37,13 +37,13 @@ describe FanProfile do
   end
 
   describe "after_save" do
-    it "creates bands" do
+    it "creates bands", observer: :fan_profile_observer do
       expect {
         @fan_profile = FactoryGirl.build(:fan_profile)
         @fan_profile.save!
       }.to change{ Band.all.count }.by(50)
     end
-    it "creates fanships" do
+    it "creates fanships", observer: :fan_profile_observer do
       expect {
         @fan_profile = FactoryGirl.build(:fan_profile)
         @fan_profile.save!
