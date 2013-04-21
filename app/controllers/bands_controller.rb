@@ -2,7 +2,7 @@ class BandsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
 
   def index
-    @bands = Band.all
+    @bands = Band.order(:name).page(params[:page]).per(15)
   end
 
   def new
@@ -14,7 +14,6 @@ class BandsController < ApplicationController
     if @band.save
       if current_user.fan_profile_created?
         current_user.fan_profile.bands << @band
-    # TODO: check if user is already fan of the band
       else
         flash[:success] = t 'need_fan_profile' #"You need to have a fan profile to become a fan of this band"
       end

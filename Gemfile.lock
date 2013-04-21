@@ -132,6 +132,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.7)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     lastfm (1.17.0)
       activesupport (>= 3.0.3)
       httparty
@@ -292,6 +295,7 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   jquery-rails
+  kaminari
   lastfm
   launchy
   meta_request
