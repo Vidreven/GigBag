@@ -178,5 +178,4 @@ describe BandsController do
       end
     end
   end
-
 end
