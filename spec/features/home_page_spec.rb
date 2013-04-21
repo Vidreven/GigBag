@@ -7,7 +7,7 @@ describe "Home page" do
     user = FactoryGirl.create(:user_with_fan_profile)
     50.times do
       band = FactoryGirl.create(:random_band)
-      FactoryGirl.create(:fanship, :fan_profile => user.fan_profile, :band => band)
+      user.fan_profile.bands << band
     end
     login_as(user, :scope => :user)
     visit root_path

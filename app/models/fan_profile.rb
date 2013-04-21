@@ -4,7 +4,6 @@
 #
 #  id              :integer          not null, primary key
 #  user_id         :integer
-#  description     :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  lastfm_username :string(255)
@@ -13,8 +12,7 @@
 class FanProfile < ActiveRecord::Base
   attr_accessible :lastfm_username, :band_ids
   belongs_to :user
-  has_many :fanships
-  has_many :bands, :through => :fanships
+  has_and_belongs_to_many :bands
   validate :lastfm_profile_exists, :on => :create
 
   attr_writer :band_list

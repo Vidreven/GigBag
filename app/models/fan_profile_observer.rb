@@ -5,7 +5,7 @@ class FanProfileObserver < ActiveRecord::Observer
 
   def after_save(fan_profile)
     create_non_existing_bands_from_lastfm_profile(fan_profile.lastfm_username).each do |band|
-      fan_profile.bands << band
+      fan_profile.bands << band unless band.in? fan_profile.bands
     end
   end
 
