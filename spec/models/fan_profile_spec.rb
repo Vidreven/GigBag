@@ -4,7 +4,6 @@
 #
 #  id              :integer          not null, primary key
 #  user_id         :integer
-#  description     :text
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  lastfm_username :string(255)
@@ -42,12 +41,6 @@ describe FanProfile do
         @fan_profile = FactoryGirl.build(:fan_profile)
         @fan_profile.save!
       }.to change{ Band.all.count }.by(50)
-    end
-    it "creates fanships", observer: :fan_profile_observer do
-      expect {
-        @fan_profile = FactoryGirl.build(:fan_profile)
-        @fan_profile.save!
-      }.to change{ Fanship.all.count }.by(50)
     end
   end
 end
