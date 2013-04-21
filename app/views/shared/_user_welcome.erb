@@ -1,3 +1,4 @@
-<div class="userInvites">
-  <%= t 'welcome' %><%= link_to current_user.name, user_path(current_user) %>!
-</div>
+<li class="hide-for-medium-down">
+<%= link_to 'Welcome, ' + current_user.name + '!', user_path(current_user) %>
+</li>
+<li class="divider"></li>

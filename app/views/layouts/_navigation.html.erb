@@ -1,18 +1,33 @@
-<dl class="tabs">
-	<%= tab_item t('home'), root_path %>
-	<%= tab_item t('view_bands'), bands_path %>
-	<%= tab_item t('how_it_works'), pages_help_path %>
-  <%= tab_item t('about'), pages_about_path %>
-</dl>
+<nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <%= image_tag "gigster.jpg" %>
+    </li>
+    <li class="divider"></li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul>
 
-<div class="userButtons">
-  <% if user_signed_in? %>
-  <%= render :partial => "shared/user_welcome" %>
-  <%= render :partial => "shared/signed_in_navigation" %>
-  <% if current_user.admin %>
-  <%= render :partial => "shared/admin_navigation" %>
-  <% end %>
-  <% else %>
-  <%= render :partial => "shared/signed_out_navigation" %>
-  <% end %>
-</div>
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="divider"></li>
+      <%= nav_item t('home'), root_path %>
+      <li class="divider"></li>
+      <%= nav_item t('view_bands'), bands_path %>
+      <li class="divider"></li>
+      <%= nav_item t('how_it_works'), pages_help_path %>
+      <li class="divider"></li>
+      <%= nav_item t('about'), pages_about_path %>
+    </ul>
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="divider hide-for-small"></li>
+      <% if user_signed_in? %>
+      <%= render :partial => "shared/signed_in_navigation" %>
+      <% else %>
+      <%= render :partial => "shared/signed_out_navigation" %>
+      <% end %>
+    </ul>
+  </section>
+</nav>
