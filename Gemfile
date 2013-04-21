@@ -47,6 +47,7 @@ gem 'devise_invitable', '~> 1.1.0'
 gem 'figaro'
 gem 'lastfm'
 gem 'simple_form'
+gem 'kaminari'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

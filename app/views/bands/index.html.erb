@@ -3,18 +3,19 @@
   <%= link_to t('new_band'), new_band_path, :class => "button margin-bottom" %>
   <% @bands.each do |band| %>
   <li class="smallBox" id=<%= "band_#{band.id}" %> >
-      <div>
-        <%= image_tag band.image, :size=>"128x128" %> 
-        <%= link_to band.name, band, :class => "info" %>
-        <p>
-          Sed feugiat elementum porta. Aliquam porttitor vulputate velit, eget consectetur purus feugiat nec. Phasellus quis lectus vel diam accumsan dictum imperdiet non nibh. Suspendisse rhoncus dui a turpis viverra pulvinar. Praesent sed odio lorem. Nullam ut odio nec lectus adipiscing scelerisque lobortis a massa. Nam sollicitudin ipsum non justo scelerisque quis accumsan ligula venenatis.
-        </p>
-      </div>
-      <div>
-        <%= link_to t('show'), band, :class => "small button" %>
-        <%= link_to t('edit'), edit_band_path(band), :class => "small button" %>
-        <%= link_to t('remove'), band, :confirm => t('are_you_sure'), :method => :delete, :class => "small button" %>
-      </div>
-    </li>
-    <% end %>
-  </ul>
+    <div>
+      <%= image_tag band.image, :size=>"128x128" %> 
+      <%= link_to band.name, band, :class => "info" %>
+      <p>
+        Sed feugiat elementum porta. Aliquam porttitor vulputate velit, eget consectetur purus feugiat nec. Phasellus quis lectus vel diam accumsan dictum imperdiet non nibh. Suspendisse rhoncus dui a turpis viverra pulvinar. Praesent sed odio lorem. Nullam ut odio nec lectus adipiscing scelerisque lobortis a massa. Nam sollicitudin ipsum non justo scelerisque quis accumsan ligula venenatis.
+      </p>
+    </div>
+    <div>
+      <%= link_to t('show'), band, :class => "small button" %>
+      <%= link_to t('edit'), edit_band_path(band), :class => "small button" %>
+      <%= link_to t('remove'), band, :confirm => t('are_you_sure'), :method => :delete, :class => "small button" %>
+    </div>
+  </li>
+  <% end %>
+</ul>
+<%= paginate @bands %>
