@@ -1,8 +1,8 @@
 module ApplicationHelper
-	def tab_item(name, url)
+	def nav_item(name, url)
     opts = {}
     opts[:class] = 'active' if current_page?(url)
-    content_tag :dd, opts do
+    content_tag :li, opts do
       link_to name, url
     end
   end

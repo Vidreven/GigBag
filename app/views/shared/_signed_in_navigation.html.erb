@@ -1,17 +1,23 @@
-<div href="#" class="button dropdown foundicon-settings">
-
-	<ul>
+<%= render :partial => "shared/user_welcome" %>
+<li class="has-dropdown"><a href="#"><div class="foundicon-settings"></div></a> 
+	<ul class="dropdown">
 		<li>
 			<%= link_to t('logout'), destroy_user_session_path, :method=>'delete'%>        
 		</li>
 		<li>
 			<%= link_to t('profile'), user_path(current_user) %>
+		</li>
 		<li>
 			<%= link_to t('edit_account'), edit_user_registration_path %>
 		</li>
 		<%= render :partial => 'shared/fan_profile_managment' %>
-		<li>
-			<%= link_to t('invite') + current_user.invitation_limit.to_s + ")", new_user_invitation_path  %> 
-		</li>
 	</ul>
-</div>
+</li>
+<li class="divider"></li>
+<% if current_user.admin %>
+<%= render :partial => "shared/admin_navigation" %>
+<% end %>
+<li class="divider show-for-small"></li>
+<li class="has-form">
+	<%= link_to t('invite') + current_user.invitation_limit.to_s + ")", new_user_invitation_path, :class => "button small invitesButton"  %> 
+</li>
