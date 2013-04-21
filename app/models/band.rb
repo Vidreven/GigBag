@@ -10,11 +10,11 @@
 #
 
 class Band < ActiveRecord::Base
-  has_many :fanships
-  has_many :fan_profiles, :through => :fanships
+  has_and_belongs_to_many :fan_profiles
   attr_accessible :image, :name
 
   validates :name, :presence => true
+  validates :name, :uniqueness => true
   validates :image, :url => true
 
   def popularity

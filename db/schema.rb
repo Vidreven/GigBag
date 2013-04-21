@@ -11,13 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130330174637) do
+ActiveRecord::Schema.define(:version => 20130420184006) do
 
   create_table "bands", :force => true do |t|
     t.string   "name"
     t.string   "image"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "bands_fan_profiles", :id => false, :force => true do |t|
+    t.integer "band_id"
+    t.integer "fan_profile_id"
   end
 
   create_table "events", :force => true do |t|
@@ -36,16 +41,6 @@ ActiveRecord::Schema.define(:version => 20130330174637) do
   end
 
   add_index "fan_profiles", ["user_id"], :name => "index_fan_profiles_on_user_id"
-
-  create_table "fanships", :force => true do |t|
-    t.integer  "fan_profile_id"
-    t.integer  "band_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
-  add_index "fanships", ["band_id"], :name => "index_fanships_on_band_id"
-  add_index "fanships", ["fan_profile_id"], :name => "index_fanships_on_fan_profile_id"
 
   create_table "users", :force => true do |t|
     t.datetime "created_at",                                              :null => false

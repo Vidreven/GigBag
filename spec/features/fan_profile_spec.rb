@@ -31,7 +31,7 @@ describe "FanProfile" do
         fill_in "Lastfm username", with: "vidreven"
         fill_in "Band list", with: band.name
         click_button 'Update Fan profile'
-      }.to_not change(FanProfile, :count).by(1)
+      }.to_not change(FanProfile, :count)
       Warden.test_reset!
     end
   end

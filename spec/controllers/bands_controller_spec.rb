@@ -161,7 +161,7 @@ describe BandsController do
       context "authorized user" do
 
         before :each do
-          @band = FactoryGirl.create(:band)
+          @band = FactoryGirl.create(:random_band)
           login_user
         end
 
@@ -178,5 +178,4 @@ describe BandsController do
       end
     end
   end
-
 end

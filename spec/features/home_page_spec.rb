@@ -5,9 +5,9 @@ Warden.test_mode!
 describe "Home page" do
   it "shows reccomendations for events to users with fan profiles" do
     user = FactoryGirl.create(:user_with_fan_profile)
-    50.times do
-      band = FactoryGirl.create(:random_band)
-      FactoryGirl.create(:fanship, :fan_profile => user.fan_profile, :band => band)
+    50.times do |n|
+      band = FactoryGirl.create(:band, :name => "band_#{n}")
+      user.fan_profile.bands << band
     end
     login_as(user, :scope => :user)
     visit root_path
