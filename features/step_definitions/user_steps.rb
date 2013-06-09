@@ -135,7 +135,7 @@ When /^I sign up with a mismatched password confirmation$/ do
   sign_up
 end
 
-When /^I return to the site$/ do
+When /^I (?:visit|return to) the site$/ do
   visit '/'
 end
 
@@ -163,6 +163,7 @@ end
 When /^I confirm my account$/ do
   #TODO
 end
+
 
 ### THEN ###
 Then /^I should be signed in$/ do
@@ -238,3 +239,14 @@ end
 Then /^I should be redirected to home page$/ do
  page.should have_content 'Home'
 end
+
+Then /^I should see create event link$/ do
+  page.should have_content 'Create event'
+end
+
+Then /^I should not see create event link$/ do
+  page.should_not have_content 'Create event'
+end
+#Then /^I should( not)? see create event link$/ do |negate|
+#  negate ? page.should_not(have_content('Create event')) : page.should(have_content('Create event'))
+#end
