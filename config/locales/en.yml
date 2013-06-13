@@ -93,3 +93,5 @@ en:
   event_not_created: "Unable to create event"
   event_updated: "Event updated"
   edit_event: "Edit event"
+  create_event: "Create event"
+  new_event: "New event"

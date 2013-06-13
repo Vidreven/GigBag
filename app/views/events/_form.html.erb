@@ -1,0 +1,8 @@
+<%= simple_form_for @event, :html => {:class => "form"} do |f| %>
+<%= f.input :name %>
+<%= f.input :event_date %>
+<%= f.input :event_time %>
+ <div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

@@ -90,3 +90,5 @@ hr:
   event_not_created: "Neuspjelo kreiranje koncerta"
   event_updated: "Koncert osvježen"
   edit_event: "Uredi koncert"
+  create_event: "Kreiraj koncert"
+  new_event: "Novi koncert"
