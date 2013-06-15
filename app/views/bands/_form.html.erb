@@ -1,7 +1,8 @@
-<%= simple_form_for @band, :html => {:class => "form"} do |f| %>
+<%= simple_form_for @band, :defaults => {:required => false}, :html => {:class => "form"} do |f| %>
 <%= f.input :name %>
 <%= f.input :image %>
  <div class="actions">
   <%= f.submit %>
 </div>
 <% end %>
+
