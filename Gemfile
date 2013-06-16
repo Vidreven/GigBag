@@ -58,7 +58,7 @@ group :test do
   # Pretty printed test output
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
-  gem 'ci_reporter', :require => false
+  #gem 'ci_reporter', :require => false
   gem 'turn', :require => false
   gem 'capybara'
   gem 'guard-rspec'
