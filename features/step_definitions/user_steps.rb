@@ -1,3 +1,6 @@
+include Warden::Test::Helpers
+Warden.test_mode!
+
 def create_visitor
   @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
     :password => "please", :password_confirmation => "please" }
@@ -173,7 +176,9 @@ When /^I confirm my account$/ do
 end
 
 When /^I click create event link$/ do
-  click_link "Create event"
+  within 'div' do
+    click_link "Create event"
+  end
 end
 
 When /^I fill in the event details$/ do
