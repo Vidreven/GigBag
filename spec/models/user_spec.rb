@@ -42,6 +42,8 @@ describe User do
     }
   end
 
+  it { should respond_to(:comments) }
+
   it "has a valid factory" do
     user = FactoryGirl.create(:user_with_fan_profile)
     user.fan_profile.should_not eq(nil)

@@ -31,6 +31,7 @@
 
 class User < ActiveRecord::Base
   has_one :fan_profile, :dependent => :destroy
+  has_many :comments
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

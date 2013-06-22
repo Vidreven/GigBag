@@ -89,7 +89,6 @@ describe EventsController do
       it "located the requested event" do
         login_user
         put :update, id: event.id, event: FactoryGirl.attributes_for(:event)
-        #assigns(:event).should eq(@event)
         expect(assigns :event).to eq(event)
         sign_out @user
       end
@@ -114,9 +113,9 @@ describe EventsController do
     context "invalid attributes" do
       it "does not change event attributes" do
         login_user
-        put :update, id: event, event: FactoryGirl.attributes_for(:event, :name => "")
+        put :update, id: event, event: FactoryGirl.attributes_for(:event, :description => "")
         event.reload
-        expect(event.name).not_to eq("")
+        expect(event.description).not_to eq("")
       end
 
       it "re-renders the edit method" do
