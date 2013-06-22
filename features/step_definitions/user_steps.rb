@@ -1,6 +1,3 @@
-include Warden::Test::Helpers
-Warden.test_mode!
-
 def create_visitor
   @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
     :password => "please", :password_confirmation => "please" }
@@ -175,15 +172,12 @@ When /^I confirm my account$/ do
   #TODO
 end
 
-When /^I click create event link$/ do
-  within 'div' do
-    click_link "Create event"
-  end
+When /^I click create event (?:link|button)$/ do
+  click_link "Create Event"
 end
 
 When /^I fill in the event details$/ do
-  fill_in "Name", with: "John Zorn"
-  click_button "Create Event"
+  fill_in "Description", with: "Vote to see in Zagreb"
 end
 
 
@@ -273,5 +267,5 @@ Then /^I should see create event dialog$/ do
 end
 
 Then /^I should see event created message$/ do
-
+  page.should have_content 'Event created'
 end

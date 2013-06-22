@@ -29,4 +29,5 @@ Feature: Create event
 	Scenario: A user creates an event
 		Given I am on create event page
 		When I fill in the event details
+		And I click create event button
 		Then I should see event created message
