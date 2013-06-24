@@ -80,15 +80,23 @@ Given /^I exist as an unconfirmed user$/ do
 end
 
 Given /^I am on profile page$/ do
-  create_user
-  sign_in
+  steps %{Given I am logged in}
   visit user_path(@user)
 end
 
 Given /^I am on invitation page$/ do
-  create_user
-  sign_in
+  steps %{Given I am logged in}
   visit '/users/invitation/new'
+end
+
+Given /^I have a fan profile$/ do
+  visit new_user_fan_profile_path(@user)
+  fill_in "Lastfm username", with: 'Vidreven'
+  click_button 'Create Fan profile'
+end
+
+Given /^I am on create event page$/ do
+  visit new_event_path
 end
 
 ### WHEN ###
@@ -135,7 +143,7 @@ When /^I sign up with a mismatched password confirmation$/ do
   sign_up
 end
 
-When /^I return to the site$/ do
+When /^I (?:visit|return to) the site$/ do
   visit '/'
 end
 
@@ -163,6 +171,16 @@ end
 When /^I confirm my account$/ do
   #TODO
 end
+
+When /^I click create event link$/ do
+  click_link "Create event"
+end
+
+When /^I fill in the event details$/ do
+  fill_in "Name", with: "John Zorn"
+  click_button "Create Event"
+end
+
 
 ### THEN ###
 Then /^I should be signed in$/ do
@@ -237,4 +255,18 @@ end
 
 Then /^I should be redirected to home page$/ do
  page.should have_content 'Home'
+end
+
+Then /^I should( not)? see create event link$/ do |negate|
+  negate.nil? ? page.should(have_content('Create event')) : page.should_not(have_content('Create event'))
+end
+
+Then /^I should see create event dialog$/ do
+  #visit new_event_path
+  steps %{Given I am in create event page}
+  page.should have_content 'Create new event'
+end
+
+Then /^I should see event created message$/ do
+
 end

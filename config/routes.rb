@@ -23,6 +23,7 @@ GigBag::Application.routes.draw do
   end
 
   resources :bands
+  resources :events
 
   #root :to => 'sessions#new'
   # The priority is based upon order of creation:

@@ -41,7 +41,7 @@ class BandsController < ApplicationController
   end
 
   def edit
-    @title = "Edit band"
+    @title = t 'edit_band'
     @band = Band.find(params[:id])
   end
 
