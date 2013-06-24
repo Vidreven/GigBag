@@ -6,6 +6,8 @@ require 'spork'
 Spork.prefork do
   unless ENV['DRB']
     require 'simplecov'
+    require 'simplecov-rcov'
+    SimpleCov.formatter = SimpleCov::Formatter::RcovFormatter
     SimpleCov.start 'rails'
   end
   # Loading more in this block will cause your tests to run faster. However,
