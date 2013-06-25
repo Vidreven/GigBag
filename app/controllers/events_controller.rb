@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   def show
   	@event = Event.find(params[:id])
+    @comments = @event.comments.paginate(page: params[:page])
   end
 
   def new

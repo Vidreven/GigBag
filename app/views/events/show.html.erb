@@ -1,3 +1,9 @@
 <h1>
   <%= @event.description %> 
 </h1>
+<% if @event.comments.any? %>
+	<ol class="comments">
+    	<%= render @comments %>
+    </ol>
+    <%= will_paginate @comments %>
+<% end %>

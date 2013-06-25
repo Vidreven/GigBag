@@ -3,6 +3,7 @@
 FactoryGirl.define do
   factory :comment do
   	user
+  	event
     content "MyText"
     #user_id 1
   end
