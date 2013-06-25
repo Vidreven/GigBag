@@ -92,3 +92,5 @@ hr:
   edit_event: "Uredi koncert"
   create_event: "Kreiraj koncert"
   new_event: "Novi koncert"
+
+  comment_error: "Neuspjelo postavljanje komentara"

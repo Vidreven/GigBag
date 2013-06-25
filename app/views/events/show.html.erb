@@ -1,7 +1,8 @@
 <h1>
   <%= @event.description %> 
 </h1>
-<% if @event.comments.any? %>
+<%= render 'comment_form' %>
+<% if @comments.any? %>
 	<ol class="comments">
     	<%= render @comments %>
     </ol>

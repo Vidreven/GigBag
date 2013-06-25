@@ -3,16 +3,17 @@ require 'spec_helper'
 describe Comment do
   let(:user) {FactoryGirl.create :user}
   let(:event) {FactoryGirl.create :event}
-  before {@comment = user.comments.build(content: "Lorem ipsum")}
+  #before {@comment = user.comments.build(content: "Lorem ipsum")}
+  before {@comment = event.comments.build(content: "Lorem ipsum")}
 
   subject {@comment}
 
   it {should respond_to(:content)}
   it {should respond_to(:user_id)}
   it {should respond_to(:user)}
-  its(:user) {should == user}
+  #its(:user) {should == user}
   it {should respond_to :event}
-  #its(:event) {should == event}
+  its(:event) {should == event}
 
   #it {should be_valid}
 

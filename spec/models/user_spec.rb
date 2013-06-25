@@ -156,21 +156,25 @@ describe User do
 
   describe "comment associations" do
 
-    let(:user) {FactoryGirl.create(:user)}
-    before {user.save}
+    #let(:user) {FactoryGirl.create(:user)}
+    let(:event) {FactoryGirl.create(:event)}
+    #before {user.save}
+    before {event.save}
     let!(:older_comment) do 
-      FactoryGirl.create(:comment, user: user, created_at: 1.day.ago)
+      #FactoryGirl.create(:comment, user: user, created_at: 1.day.ago)
+      FactoryGirl.create(:comment, event: event, created_at: 1.day.ago)
     end
     let!(:newer_comment) do
-      FactoryGirl.create(:comment, user: user, created_at: 1.hour.ago)
+      #FactoryGirl.create(:comment, user: user, created_at: 1.hour.ago)
+      FactoryGirl.create(:comment, event: event, created_at: 1.hour.ago)
     end
 
     it "should have the right comments in the right order" do
-      user.comments.should == [newer_comment, older_comment]
+      event.comments.should == [newer_comment, older_comment]
     end
 
     it "should destroy associated comments" do
-      comments = user.comments.dup
+      comments = event.comments.dup #user.comments.dup
       user.destroy
       expect(comments).not_to be_empty
       comments.each do |comment|

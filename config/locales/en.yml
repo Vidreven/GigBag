@@ -95,3 +95,5 @@ en:
   edit_event: "Edit event"
   create_event: "Create event"
   new_event: "New event"
+
+  comment_error: "Failed to create comment"
