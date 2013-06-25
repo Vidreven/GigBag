@@ -11,7 +11,9 @@
 #
 
 class Event < ActiveRecord::Base
-  attr_accessible :event_date, :event_time, :name
+  attr_accessible :event_date, :event_time, :name, :description
 
-  validates :name, presence: true, length: {maximum: 50}
+  #validates :name, presence: true, length: {maximum: 50}
+  validates :description, presence: true
+  has_many :comments, dependent: :destroy
 end

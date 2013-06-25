@@ -42,6 +42,8 @@ describe User do
     }
   end
 
+  it { should respond_to(:comments) }
+
   it "has a valid factory" do
     user = FactoryGirl.create(:user_with_fan_profile)
     user.fan_profile.should_not eq(nil)
@@ -150,5 +152,34 @@ describe User do
       @user.fan_profile_created?.should be_false
     end
 
+  end
+
+  describe "comment associations" do
+
+    #let(:user) {FactoryGirl.create(:user)}
+    let(:event) {FactoryGirl.create(:event)}
+    #before {user.save}
+    before {event.save}
+    let!(:older_comment) do 
+      #FactoryGirl.create(:comment, user: user, created_at: 1.day.ago)
+      FactoryGirl.create(:comment, event: event, created_at: 1.day.ago)
+    end
+    let!(:newer_comment) do
+      #FactoryGirl.create(:comment, user: user, created_at: 1.hour.ago)
+      FactoryGirl.create(:comment, event: event, created_at: 1.hour.ago)
+    end
+
+    it "should have the right comments in the right order" do
+      event.comments.should == [newer_comment, older_comment]
+    end
+
+    it "should destroy associated comments" do
+      comments = event.comments.dup #user.comments.dup
+      user.destroy
+      expect(comments).not_to be_empty
+      comments.each do |comment|
+        expect(Comment.find_by_id(comment.id)).to be_nil
+      end
+    end
   end
 end
