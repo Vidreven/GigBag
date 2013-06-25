@@ -153,4 +153,29 @@ describe User do
     end
 
   end
+
+  describe "comment associations" do
+
+    let(:user) {FactoryGirl.create(:user)}
+    before {user.save}
+    let!(:older_comment) do 
+      FactoryGirl.create(:comment, user: user, created_at: 1.day.ago)
+    end
+    let!(:newer_comment) do
+      FactoryGirl.create(:comment, user: user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right comments in the right order" do
+      user.comments.should == [newer_comment, older_comment]
+    end
+
+    it "should destroy associated comments" do
+      comments = user.comments.dup
+      user.destroy
+      expect(comments).not_to be_empty
+      comments.each do |comment|
+        expect(Comment.find_by_id(comment.id)).to be_nil
+      end
+    end
+  end
 end
