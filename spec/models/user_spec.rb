@@ -156,17 +156,14 @@ describe User do
 
   describe "comment associations" do
 
-    #let(:user) {FactoryGirl.create(:user)}
+    let(:user) {FactoryGirl.create(:user)}
     let(:event) {FactoryGirl.create(:event)}
-    #before {user.save}
     before {event.save}
     let!(:older_comment) do 
-      #FactoryGirl.create(:comment, user: user, created_at: 1.day.ago)
-      FactoryGirl.create(:comment, event: event, created_at: 1.day.ago)
+      FactoryGirl.create(:comment, event: event, user: user, created_at: 1.day.ago)
     end
     let!(:newer_comment) do
-      #FactoryGirl.create(:comment, user: user, created_at: 1.hour.ago)
-      FactoryGirl.create(:comment, event: event, created_at: 1.hour.ago)
+      FactoryGirl.create(:comment, event: event, user: user, created_at: 1.hour.ago)
     end
 
     it "should have the right comments in the right order" do

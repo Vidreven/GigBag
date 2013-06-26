@@ -5,6 +5,5 @@ FactoryGirl.define do
   	user
   	event
     content "MyText"
-    #user_id 1
   end
 end

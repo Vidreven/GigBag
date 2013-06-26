@@ -1,4 +1,4 @@
-<%= simple_form_for @comment, :defaults => {:required => false}, :html => {:class => "form"} do |f| %>
+<%= simple_form_for [@event, @event.comments.build], :defaults => {:required => false}, :html => {:class => "form"} do |f| %>
 <%= f.input :content %>
  <div class="actions">
   <%= f.submit %>
