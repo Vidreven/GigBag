@@ -2,27 +2,24 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
+#  id                     :integer          primary key
+#  created_at             :timestamp        not null
+#  updated_at             :timestamp        not null
 #  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default("")
 #  reset_password_token   :string(255)
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
+#  reset_password_sent_at :timestamp
+#  remember_created_at    :timestamp
 #  sign_in_count          :integer          default(0)
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
+#  current_sign_in_at     :timestamp
+#  last_sign_in_at        :timestamp
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#  confirmation_token     :string(255)
-#  confirmed_at           :datetime
-#  confirmation_sent_at   :datetime
 #  name                   :string(255)
 #  unconfirmed_email      :string(255)
 #  invitation_token       :string(60)
-#  invitation_sent_at     :datetime
-#  invitation_accepted_at :datetime
+#  invitation_sent_at     :timestamp
+#  invitation_accepted_at :timestamp
 #  invitation_limit       :integer
 #  invited_by_id          :integer
 #  invited_by_type        :string(255)
@@ -41,6 +38,8 @@ describe User do
       :password_confirmation => "foobar"
     }
   end
+
+  it { should respond_to(:comments) }
 
   it "has a valid factory" do
     user = FactoryGirl.create(:user_with_fan_profile)
@@ -150,5 +149,31 @@ describe User do
       @user.fan_profile_created?.should be_false
     end
 
+  end
+
+  describe "comment associations" do
+
+    let(:user) {FactoryGirl.create(:user)}
+    let(:event) {FactoryGirl.create(:event)}
+    before {event.save}
+    let!(:older_comment) do 
+      FactoryGirl.create(:comment, event: event, user: user, created_at: 1.day.ago)
+    end
+    let!(:newer_comment) do
+      FactoryGirl.create(:comment, event: event, user: user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right comments in the right order" do
+      event.comments.should == [newer_comment, older_comment]
+    end
+
+    it "should destroy associated comments" do
+      comments = event.comments.dup #user.comments.dup
+      user.destroy
+      expect(comments).not_to be_empty
+      comments.each do |comment|
+        expect(Comment.find_by_id(comment.id)).to be_nil
+      end
+    end
   end
 end

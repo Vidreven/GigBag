@@ -2,16 +2,19 @@
 #
 # Table name: events
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  event_date :date
-#  event_time :time
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          primary key
+#  name        :string(255)
+#  event_date  :date
+#  event_time  :time
+#  created_at  :timestamp        not null
+#  updated_at  :timestamp        not null
+#  description :text
 #
 
 class Event < ActiveRecord::Base
-  attr_accessible :event_date, :event_time, :name
+  attr_accessible :event_date, :event_time, :name, :description
 
-  validates :name, presence: true, length: {maximum: 50}
+  #validates :name, presence: true, length: {maximum: 50}
+  validates :description, presence: true
+  has_many :comments, dependent: :destroy
 end

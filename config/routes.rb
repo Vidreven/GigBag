@@ -24,6 +24,10 @@ GigBag::Application.routes.draw do
 
   resources :bands
 
+  resources :events do
+    resources :comments
+  end
+
   #root :to => 'sessions#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.

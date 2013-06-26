@@ -2,11 +2,16 @@
 #
 # Table name: bands
 #
-#  id         :integer          not null, primary key
+#  id         :integer          primary key
 #  name       :string(255)
 #  image      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  created_at :timestamp        not null
+#  updated_at :timestamp        not null
+#  website    :string(255)
+#  bandcamp   :string(255)
+#  facebook   :string(255)
+#  lastfm     :string(255)
+#  soundcloud :string(255)
 #
 
 require 'spec_helper'
