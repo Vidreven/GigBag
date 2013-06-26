@@ -1,0 +1,6 @@
+<%= simple_form_for @event, :defaults => {:required => false}, :html => {:class => "form"} do |f| %>
+<%= f.input :description %>
+ <div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>
