@@ -5,7 +5,7 @@ GigBag
 ======
 
 Download with:
-`$ git clone git@github.com:Vunovati/gigbag.git`
+`$ git clone git@github.com:Vidreven/gigbag.git`
 `$ cd GigBag`
 
 Automatically changes rvm to a new gemset (set in .rvmrc)
