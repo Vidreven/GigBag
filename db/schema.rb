@@ -18,11 +18,6 @@ ActiveRecord::Schema.define(:version => 20130625143415) do
     t.string    "image"
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
-    t.string    "website"
-    t.string    "bandcamp"
-    t.string    "facebook"
-    t.string    "lastfm"
-    t.string    "soundcloud"
   end
 
   create_table "bands_fan_profiles", :id => false, :force => true do |t|
@@ -31,11 +26,11 @@ ActiveRecord::Schema.define(:version => 20130625143415) do
   end
 
   create_table "comments", :force => true do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "event_id"
+    t.text      "content"
+    t.integer   "user_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
+    t.integer   "event_id"
   end
 
   add_index "comments", ["user_id", "created_at"], :name => "index_comments_on_user_id_and_created_at"
