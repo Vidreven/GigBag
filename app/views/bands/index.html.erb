@@ -1,4 +1,9 @@
 <h3><%= t 'bands' %></h3>
+<%= search_form_for @query do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.text_field :name_cont %>
+  <%= f.submit %>
+<% end %>
 <ul class="band">
   <%= link_to t('new_band'), new_band_path, :class => "button margin-bottom" %>
   <% @bands.each do |band| %>
