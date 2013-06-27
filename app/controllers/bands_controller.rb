@@ -2,7 +2,8 @@ class BandsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
 
   def index
-    @bands = Band.order(:name).page(params[:page]).per(15)
+    @query = Band.search(params[:q])
+    @bands = @query.result(:distinct => true).page(params[:page]).per(15)
   end
 
   def new
