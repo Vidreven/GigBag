@@ -17,6 +17,7 @@
 /config/application.yml
 /.bundle
 /db/*.sqlite3
+/db/*.sqlite3-journal
 capybara-*.html
 /spec/tmp/*
 # See http://help.github.com/ignore-files/ for more about ignoring files.
