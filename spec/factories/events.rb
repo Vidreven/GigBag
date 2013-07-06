@@ -2,6 +2,7 @@
 
 FactoryGirl.define do
   factory :event do
+  	band
     name "Testni event"
     description "See the Test band live!"
     event_date "2013-03-30"
@@ -9,6 +10,7 @@ FactoryGirl.define do
   end
 
   factory :invalid_event, parent: :event do
+  	band
   	description nil
   end
 end
