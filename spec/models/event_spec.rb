@@ -15,8 +15,9 @@ require 'spec_helper'
 
 describe Event do
   let(:event) {FactoryGirl.create :event}
+  #let(:band) {FactoryGirl.create :band}
 
-  #subject {:event}
+  #subject {@event}
 
   it {should respond_to(:name)}
   it {should respond_to(:description)}

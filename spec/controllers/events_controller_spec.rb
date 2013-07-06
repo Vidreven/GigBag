@@ -8,7 +8,8 @@ describe EventsController do
     sign_in @user
   end
 
-	let!(:event) {FactoryGirl.create :event}
+	let(:event) {FactoryGirl.create :event}
+  let(:band) {FactoryGirl.create :band}
 
 	describe "GET index" do
 		it "lists all events" do
@@ -40,7 +41,7 @@ describe EventsController do
      		it "saves the new event to database" do
        		login_user
        		expect{
-         			post :create, event: FactoryGirl.attributes_for(:event)
+         			post :create, :band_id => band, event: FactoryGirl.attributes_for(:event)
        		}.to change(Event, :count).by(1)
        		sign_out @user
      		end
@@ -71,9 +72,9 @@ describe EventsController do
 
      context "unauthorized user" do
        it "cannot create an event" do
-         @event = FactoryGirl.create(:event)
+         #@event = FactoryGirl.create(:event)
          expect{
-           post :create, event: FactoryGirl.attributes_for(:event)
+           post :create, band_id: band, event: FactoryGirl.attributes_for(:event)
          }.to_not change(Event, :count)
        end
        it "redirects to sign in page" do

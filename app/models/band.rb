@@ -16,6 +16,7 @@
 
 class Band < ActiveRecord::Base
   has_and_belongs_to_many :fan_profiles
+  has_many :events, dependent: :destroy
   attr_accessible :image, :name
 
   validates :name, :presence => true
