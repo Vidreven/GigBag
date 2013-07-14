@@ -1,7 +1,8 @@
 @import "variables";
 @import "settings";
 @import "foundation";
-@import "animate";
+//@import "animate";
+@import "ribbon";
 @import "general_foundicons";
 
 /*Fonts*/
@@ -27,7 +28,7 @@
 /* Styling */
 body {
 	background-color: $backgroundColor;
-	background-image: image-url('noisy-texture.png');
+	//background-image: image-url('noisy-texture.png');
 	color: $textColor;
 	font-family: $defaultFont, sans-serif;
 	font-size: 100%;
@@ -64,14 +65,15 @@ ul {
 .invitesButton {
 	margin-top: 7px;
 	float: right;
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
 .box {
-	color: $textColor;
+	color: black;
 	padding-bottom: 20px;
-	background-color: $defaultColor;
-	
-	@include borderRadius(5px, $backgroundColor);
+	//background-color: rgba($menuColor, .4);
+	//@include borderRadius(5px, $backgroundColor);
 
 	h1, h2, h3, p {
 		color: inherit;
@@ -100,6 +102,7 @@ ul {
 	.button {
 		border-radius: 5px;
 		background-color: $replacementColor;
+		color: $textColor;
 	}
 }
 
@@ -136,13 +139,14 @@ footer {
 
 #featured {
 	@include borderRadius(5px, lighten($defaultColor, 10%), 2px);
+	color: $textColor;
 }
 
 .recommendedEvent {
 	padding: 10px 0px 0px 30px;
 	width: 600px;
 	height: 300px;
-	background-color: lighten($defaultColor, 5%);
+	background-color: lighten($defaultColor, 10%);
 
 	img {
 		margin-left: 20px;
@@ -155,4 +159,9 @@ footer {
 	display: inline;
 	padding-left: 15px;
 	top: 100px;
+}
+
+.top-bar {
+	border-left: 1px dotted gray;
+	border-right: 1px dotted gray;
 }
