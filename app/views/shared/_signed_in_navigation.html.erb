@@ -17,7 +17,4 @@
 <% if current_user.admin %>
 <%= render :partial => "shared/admin_navigation" %>
 <% end %>
-<li class="divider show-for-small"></li>
-<li class="has-form">
-	<%= link_to t('invite') + current_user.invitation_limit.to_s + ")", new_user_invitation_path, :class => "button small invitesButton"  %> 
-</li>
+<%= link_to t('invite') + current_user.invitation_limit.to_s + ")", new_user_invitation_path, :class => "button small invitesButton"  %> 
