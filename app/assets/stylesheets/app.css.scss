@@ -5,7 +5,7 @@
 @import "general_foundicons";
 
 /*Fonts*/
-@each $webfont in Oranienbaum, Anton {
+@each $webfont in Raleway {
 	@import url("http://fonts.googleapis.com/css?family=#{$webfont}");
 }
 
@@ -62,9 +62,10 @@ ul {
 }
 
 .invitesButton {
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-top: 7px;
+	float: right;
 }
+
 .box {
 	color: $textColor;
 	padding-bottom: 20px;
