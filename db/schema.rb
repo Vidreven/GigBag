@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625143415) do
+ActiveRecord::Schema.define(:version => 20130704170302) do
 
   create_table "bands", :force => true do |t|
-    t.string    "name"
-    t.string    "image"
-    t.timestamp "created_at", :null => false
-    t.timestamp "updated_at", :null => false
+    t.string   "name"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "bands_fan_profiles", :id => false, :force => true do |t|
@@ -26,57 +26,62 @@ ActiveRecord::Schema.define(:version => 20130625143415) do
   end
 
   create_table "comments", :force => true do |t|
-    t.text      "content"
-    t.integer   "user_id"
-    t.timestamp "created_at", :null => false
-    t.timestamp "updated_at", :null => false
-    t.integer   "event_id"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "event_id"
   end
 
   add_index "comments", ["user_id", "created_at"], :name => "index_comments_on_user_id_and_created_at"
 
   create_table "events", :force => true do |t|
-    t.string    "name"
-    t.date      "event_date"
-    t.time      "event_time"
-    t.timestamp "created_at",  :null => false
-    t.timestamp "updated_at",  :null => false
-    t.text      "description"
+    t.string   "name"
+    t.date     "event_date"
+    t.time     "event_time"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
+    t.integer  "band_id"
   end
 
   create_table "fan_profiles", :force => true do |t|
-    t.integer   "user_id"
-    t.timestamp "created_at",      :null => false
-    t.timestamp "updated_at",      :null => false
-    t.string    "lastfm_username"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "lastfm_username"
   end
 
   add_index "fan_profiles", ["user_id"], :name => "index_fan_profiles_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.timestamp "created_at",                                              :null => false
-    t.timestamp "updated_at",                                              :null => false
-    t.string    "email",                                :default => "",    :null => false
-    t.string    "encrypted_password",                   :default => ""
-    t.string    "reset_password_token"
-    t.timestamp "reset_password_sent_at"
-    t.timestamp "remember_created_at"
-    t.integer   "sign_in_count",                        :default => 0
-    t.timestamp "current_sign_in_at"
-    t.timestamp "last_sign_in_at"
-    t.string    "current_sign_in_ip"
-    t.string    "last_sign_in_ip"
-    t.string    "name"
-    t.string    "unconfirmed_email"
-    t.string    "invitation_token",       :limit => 60
-    t.timestamp "invitation_sent_at"
-    t.timestamp "invitation_accepted_at"
-    t.integer   "invitation_limit"
-    t.integer   "invited_by_id"
-    t.string    "invited_by_type"
-    t.boolean   "admin",                                :default => false
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
+    t.string   "email",                                :default => "",    :null => false
+    t.string   "encrypted_password",                   :default => ""
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                        :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "name"
+    t.string   "unconfirmed_email"
+    t.string   "invitation_token",       :limit => 60
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer  "invitation_limit"
+    t.integer  "invited_by_id"
+    t.string   "invited_by_type"
+    t.boolean  "admin",                                :default => false
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
