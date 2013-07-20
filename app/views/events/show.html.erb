@@ -1,6 +1,9 @@
 <h1>
-  <%= @event.description %> 
+	<%= @event.name %><%= t 'in_zagreb'%>
 </h1>
+<h3>
+  <%= @event.description %> 
+</h3>
 <%= render 'comment_form' %>
 <% if @comments.any? %>
 	<ol class="comments">

@@ -92,5 +92,8 @@ hr:
   edit_event: "Uredi koncert"
   create_event: "Kreiraj koncert"
   new_event: "Novi koncert"
+  in_zagreb: " u Zagrebu"
+  event_list: "Popis koncerata"
 
   comment_error: "Neuspjelo postavljanje komentara"
+  comment: "Komentar"

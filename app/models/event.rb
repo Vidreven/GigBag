@@ -17,4 +17,5 @@ class Event < ActiveRecord::Base
   #validates :name, presence: true, length: {maximum: 50}
   validates :description, presence: true
   has_many :comments, dependent: :destroy
+  belongs_to :band
 end
