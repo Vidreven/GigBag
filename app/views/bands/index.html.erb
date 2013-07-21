@@ -14,8 +14,10 @@
     </div>
     <div>
       <%= link_to t('show'), band, :class => "small button" %>
-      <%= link_to t('edit'), edit_band_path(band), :class => "small button" %>
-      <%= link_to t('remove'), band, :confirm => t('are_you_sure'), :method => :delete, :class => "small button" %>
+      <% if user_signed_in? %>
+        <%= link_to t('edit'), edit_band_path(band), :class => "small button" %>
+        <%= link_to t('remove'), band, :confirm => t('are_you_sure'), :method => :delete, :class => "small button" %>
+      <% end %>
     </div>
   </li>
   <% end %>
