@@ -26,13 +26,22 @@ describe EventsController do
 
 	describe "GET show" do
 		it "should show an event" do
+      login_user
 			get :show, id: event
 			expect(assigns :event).to eq(event)
 		end
 
 		it "renders the :show template" do
+      login_user
       get :show, id: event
     	response.should render_template :show
+    end
+
+    context "unauthorized user" do
+      it "cannot show an event" do
+        get :show, id: event
+        expect(assigns :event).not_to eq(event)
+      end
     end
 	end
 
