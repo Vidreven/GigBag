@@ -4,7 +4,8 @@
      <div class="content recommendedEvent">
           <h3><%=link_to band.name, band %> <%= t 'in_zagreb' %></h3>
           <%= image_tag band.image %>
-          <div class="listeners"><div class="foundicon-mic"></div><%= t 'listened_by' %> <%= band.fan_profiles.count %> <%= t 'gigbag_users' %><br /><%= link_to t('create_event'), new_event_path(:name => band.name), :class => "small button" %></div>
+          <%@band = band%>
+          <%= render 'event_create_or_link', object: @band %>
      </div>
      <% end %>
 </div>
