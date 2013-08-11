@@ -191,11 +191,11 @@ footer {
 }
 
 #avatar {
+	@extend .hide-for-small;
 	.animal {
 		position: fixed;
-		top: -76px;
+		top: 76px;
 		right: 70px;
-		-webkit-transform: scale(0.4);
 	}
 
 	#branch {
@@ -216,3 +216,4 @@ footer {
 	font-family: 'Lily Script One', sans-serif;
 	font-size: 4.5em;
 }
+
