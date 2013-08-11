@@ -6,7 +6,7 @@
 @import "general_foundicons";
 
 /*Fonts*/
-@each $webfont in Raleway {
+@each $webfont in 'Raleway', 'Lily Script One' {
 	@import url("http://fonts.googleapis.com/css?family=#{$webfont}");
 }
 
@@ -103,6 +103,7 @@ ul {
 		border-radius: 5px;
 		background-color: $replacementColor;
 		color: $textColor;
+		text-shadow: -1px 1px black, 1px 1px #333;
 	}
 }
 
@@ -121,7 +122,22 @@ ul {
 }
 
 footer {
+	position: fixed;
+	bottom: 0;
+	height: 120px;
+	background-color: $footerColor;
 	text-align: center;
+	color: white;
+
+	p {
+		padding-left: 100px;
+		padding-right: 100px;
+		padding-top: 10px;
+	}
+}
+
+.leftAlign {
+	text-align: left;
 }
 
 .has-tip {
@@ -159,9 +175,44 @@ footer {
 	display: inline;
 	padding-left: 15px;
 	top: 100px;
+
+	.button {
+		margin-top: 10px;
+	}
 }
 
 .top-bar {
 	border-left: 1px dotted gray;
 	border-right: 1px dotted gray;
+
+	.active {
+		box-shadow: inset -2px -2px #888;
+	}
+}
+
+#avatar {
+	.animal {
+		position: fixed;
+		top: -76px;
+		right: 70px;
+		-webkit-transform: scale(0.4);
+	}
+
+	#branch {
+		background-image: image-url('branch.png');
+		width: 400px;
+		height: 127px;
+		position: fixed;
+		top: 160px;
+		right: 0px;
+	}
+}
+
+#gigbag {
+	color: $menuColor;
+	margin-top: -10px;
+	margin-left: -20px;
+	margin-bottom: 20px;
+	font-family: 'Lily Script One', sans-serif;
+	font-size: 4.5em;
 }
