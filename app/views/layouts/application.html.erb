@@ -23,7 +23,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="home index">
-
+  <% if current_page?('/') %>
+  <div id="avatar">
+    <div id="branch"></div>
+    <div class="animal owl">
+      <div class="head"></div>
+      <div class="beak"></div>
+      <div class="eye-border left">
+        <div class="eye"></div>
+      </div>
+      <div class="eye-border right">
+        <div class="eye"></div>
+      </div>
+      <div class="body">
+        <div class="tummy"></div>
+        <div class="wing left"></div>
+        <div class="wing right"></div>
+      </div>
+      <div class="foot left"></div>
+      <div class="foot right"></div>
+    </div>
+  </div>
+  <% end %>
   <div id="container" class="container">
     <header>
       <div class="row">
