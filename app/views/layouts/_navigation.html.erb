@@ -1,38 +1,40 @@
-<nav class="top-bar twelve columns centered">
-  <ul class="title-area">
-    <!-- Title Area -->
-    <li class="name">
-      <%= link_to image_tag("gigster.png"), '/' %>
-    </li>
-    <li class="divider"></li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-  </ul>
+<div id="navigationBar">
+  <nav class="top-bar twelve columns centered">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <%= link_to image_tag("gigster.png"), '/' %>
+      </li>
+      <li class="divider"></li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+    </ul>
 
-  <section class="top-bar-section">
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li class="divider"></li>
-      <%= nav_item t('home'), root_path %>
-      <li class="divider"></li>
-      <%= nav_item t('view_bands'), bands_path %>
-      <li class="divider"></li>
-      <%= nav_item t('how_it_works'), pages_help_path %>
-      <li class="divider"></li>
-      <%= nav_item t('about'), pages_about_path %>
-    </ul>
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="divider hide-for-small"></li>
-      <% if user_signed_in? %>
-      <%= render :partial => "shared/signed_in_navigation" %>
-      <% else %>
-      <%= render :partial => "shared/signed_out_navigation" %>
-      <% end %>
-    </ul>
-  </section>
-</nav>
-<div class="ribbon twelve columns centered hide-for-small">
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li class="divider"></li>
+        <%= nav_item t('home'), root_path %>
+        <li class="divider"></li>
+        <%= nav_item t('view_bands'), bands_path %>
+        <li class="divider"></li>
+        <%= nav_item t('how_it_works'), pages_help_path %>
+        <li class="divider"></li>
+        <%= nav_item t('about'), pages_about_path %>
+      </ul>
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="divider hide-for-small"></li>
+        <% if user_signed_in? %>
+        <%= render :partial => "shared/signed_in_navigation" %>
+        <% else %>
+        <%= render :partial => "shared/signed_out_navigation" %>
+        <% end %>
+      </ul>
+    </section>
+  </nav>
+  <div class="ribbon twelve columns centered hide-for-small">
     <div class="ribbon-stitches-top"></div>
     <strong class="ribbon-content"><h1></h1></strong>
     <div class="ribbon-stitches-bottom"></div>
+  </div>
 </div>
