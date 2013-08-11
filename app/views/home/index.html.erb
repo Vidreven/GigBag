@@ -1,5 +1,26 @@
+<h1 id="gigbag">gigbag</h1>
 <h3><%= t 'home' %></h3>
 <p><%= t 'welcome_message' %></p>
+<div id="avatar">
+	<div id="branch"></div>
+	<div class="animal owl">
+		<div class="head"></div>
+		<div class="beak"></div>
+		<div class="eye-border left">
+			<div class="eye"></div>
+		</div>
+		<div class="eye-border right">
+			<div class="eye"></div>
+		</div>
+		<div class="body">
+			<div class="tummy"></div>
+			<div class="wing left"></div>
+			<div class="wing right"></div>
+		</div>
+		<div class="foot left"></div>
+		<div class="foot right"></div>
+	</div>
+</div>
 <%if user_signed_in? %>
 <%= render 'signed_in_user_home' %>
 <%end %>
