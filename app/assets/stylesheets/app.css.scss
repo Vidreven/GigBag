@@ -1,11 +1,12 @@
 @import "variables";
 @import "settings";
 @import "foundation";
-@import "animate";
+//@import "animate";
+@import "ribbon";
 @import "general_foundicons";
 
 /*Fonts*/
-@each $webfont in Oranienbaum, Anton {
+@each $webfont in 'Raleway', 'Lily Script One' {
 	@import url("http://fonts.googleapis.com/css?family=#{$webfont}");
 }
 
@@ -27,7 +28,7 @@
 /* Styling */
 body {
 	background-color: $backgroundColor;
-	background-image: image-url('noisy-texture.png');
+	//background-image: image-url('noisy-texture.png');
 	color: $textColor;
 	font-family: $defaultFont, sans-serif;
 	font-size: 100%;
@@ -62,15 +63,17 @@ ul {
 }
 
 .invitesButton {
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-top: 7px;
+	float: right;
+	margin-left: 15px;
+	margin-right: 15px;
 }
+
 .box {
-	color: $textColor;
+	color: black;
 	padding-bottom: 20px;
-	background-color: $defaultColor;
-	
-	@include borderRadius(5px, $backgroundColor);
+	//background-color: rgba($menuColor, .4);
+	//@include borderRadius(5px, $backgroundColor);
 
 	h1, h2, h3, p {
 		color: inherit;
@@ -99,6 +102,8 @@ ul {
 	.button {
 		border-radius: 5px;
 		background-color: $replacementColor;
+		color: $textColor;
+		text-shadow: -1px 1px black, 1px 1px #333;
 	}
 }
 
@@ -117,7 +122,19 @@ ul {
 }
 
 footer {
+	background-color: $footerColor;
 	text-align: center;
+	color: white;
+
+	p {
+		padding-left: 100px;
+		padding-right: 100px;
+		padding-top: 10px;
+	}
+}
+
+.leftAlign {
+	text-align: left;
 }
 
 .has-tip {
@@ -135,13 +152,14 @@ footer {
 
 #featured {
 	@include borderRadius(5px, lighten($defaultColor, 10%), 2px);
+	color: $textColor;
 }
 
 .recommendedEvent {
 	padding: 10px 0px 0px 30px;
 	width: 600px;
 	height: 300px;
-	background-color: lighten($defaultColor, 5%);
+	background-color: lighten($defaultColor, 10%);
 
 	img {
 		margin-left: 20px;
@@ -154,4 +172,62 @@ footer {
 	display: inline;
 	padding-left: 15px;
 	top: 100px;
+
+	.button {
+		margin-top: 10px;
+	}
+}
+
+.top-bar {
+	border-left: 1px dotted gray;
+	border-right: 1px dotted gray;
+
+	.active {
+		box-shadow: inset -2px -2px #888;
+	}
+}
+
+#avatar {
+	@extend .hide-for-small;
+	.animal {
+		position: absolute;
+		top: 76px;
+		right: 70px;
+	}
+
+	#branch {
+		background-image: image-url('branch.png');
+		width: 400px;
+		height: 127px;
+		position: absolute;
+		top: 160px;
+		right: 0px;
+	}
+}
+
+#gigbag {
+	color: $menuColor;
+	margin-top: -10px;
+	margin-left: -20px;
+	margin-bottom: 20px;
+	font-family: 'Lily Script One', sans-serif;
+	font-size: 4.5em;
+}
+
+#comment_content, #event_description {
+	height: 200px;
+}
+
+ol.comments li {
+	background-color: white;
+	border: 1px dotted grey;
+	padding: 5px;
+	border-radius: 5px 5px 5px 5px;
+	width: 60%;
+
+	.timestamp {
+		font-size: 0.8em;
+		position: absolute;
+		left: 62%;
+	}
 }
