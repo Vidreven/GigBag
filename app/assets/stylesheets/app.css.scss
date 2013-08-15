@@ -214,3 +214,20 @@ footer {
 	font-size: 4.5em;
 }
 
+#comment_content {
+	height: 200px;
+}
+
+ol.comments li {
+	background-color: white;
+	border: 1px dotted grey;
+	padding: 5px;
+	border-radius: 5px 5px 5px 5px;
+	width: 60%;
+
+	.timestamp {
+		font-size: 0.8em;
+		position: absolute;
+		left: 62%;
+	}
+}
