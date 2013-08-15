@@ -15,7 +15,7 @@ describe "Bands" do
         fill_in 'band_image', with: "http://userserve-ak.last.fm/serve/500/29534991/Opeth+4.jpg"
         click_button "Create Band"
       }.to change(Band,:count).by(1)
-      within 'h1' do
+      within 'h2' do
         page.should have_content "Example"
       end
       Warden.test_reset!
