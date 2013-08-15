@@ -23,16 +23,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="home index">
-  
+  <% if current_page?('/') %>
+  <div id="avatar">
+    <div id="branch"></div>
+    <div class="animal owl">
+      <div class="head"></div>
+      <div class="beak"></div>
+      <div class="eye-border left">
+        <div class="eye"></div>
+      </div>
+      <div class="eye-border right">
+        <div class="eye"></div>
+      </div>
+      <div class="body">
+        <div class="tummy"></div>
+        <div class="wing left"></div>
+        <div class="wing right"></div>
+      </div>
+      <div class="foot left"></div>
+      <div class="foot right"></div>
+    </div>
+  </div>
+  <% end %>
   <div id="container" class="container">
     <header>
-      <div>
+      <div class="row">
         <%= render 'layouts/navigation' %>
       </div>
       <%= render 'layouts/messages' %>
     </header>
     <div class="row">
-      <div class="box ten columns centered">
+      <div class="box twelve columns centered">
         <div id="main" role="main">
           <%= yield %>
         </div>
@@ -40,7 +61,8 @@
     </div>
   </div>
   <footer>
-    &copy; TagoMago Inc.
+    <p class="leftAlign">GigBag is a platfrom for group funding of concerts. It enables you and people in your area to pre-fund a gig by an artist you all like and find a person who will organize it. GigBag suggests which artists are the most popular among users in your area. If you discover some new band you thought nobody has heard of has many fans in your area you can create a GigBag event and start a campaign to bring them to a local venue.</p>
+    <p>&copy; TagoMago Inc.</p>
   </footer>
 </body>
 </html>

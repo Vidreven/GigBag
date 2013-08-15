@@ -1,6 +1,56 @@
+/*Variables*/
+
+/*Scheme1*/
+/* 
+ $menuColor: #AAFDAB;
 $defaultColor: #0D1C1A;
 $replacementColor: #120F07;
 $backgroundColor: white;
 $textColor: #F0DD97;
-$defaultFont: 'Georgia';
-$titleFont: 'Anton';
+$defaultFont: 'Raleway';
+$titleFont: 'Raleway';
+$ribbonColor: lighten($defaultColor, 20%); 
+$footerColor: #606060;
+
+$topBarBgColor: $menuColor;
+$topBarLinkColor: black;
+$topBarDropBgColor: $menuColor;
+$topBarDropLinkColor: black;
+$topBarDropToggleColor: black; 
+*/
+
+/*Scheme2*/
+/* $menuColor: #1F401E;
+$defaultColor: #132612;
+$replacementColor: #8C7354;
+$backgroundColor: #F2CAA7;
+$textColor: #F2CAA7;
+$defaultFont: 'Raleway';
+$titleFont: 'Raleway';
+$ribbonColor: lighten($defaultColor, 20%); 
+$footerColor: #BF9E80;
+
+
+$topBarBgColor: $menuColor;
+$topBarLinkColor: $textColor;
+$topBarDropBgColor: darken($menuColor, 15%);
+$topBarDropLinkColor: $textColor;
+$topBarDropToggleColor: $textColor; */
+
+/*Scheme3*/
+$menuColor: #546742;
+$defaultColor: #A7A37E;
+$replacementColor: #A7A37E;
+$backgroundColor: lighten(#E6E2AF, 10%);
+$textColor: #EFECCA;
+$defaultFont: 'Raleway';
+$titleFont: 'Raleway';
+$ribbonColor: lighten($defaultColor, 20%); 
+$footerColor: #BF9E80;
+
+
+$topBarBgColor: $menuColor;
+$topBarLinkColor: $textColor;
+$topBarDropBgColor: darken($menuColor, 15%);
+$topBarDropLinkColor: $textColor;
+$topBarDropToggleColor: $textColor;
