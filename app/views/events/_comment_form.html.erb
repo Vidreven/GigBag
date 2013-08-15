@@ -1,6 +1,6 @@
 <%= simple_form_for [@event, @event.comments.build], :defaults => {:required => false}, :html => {:class => "form"} do |f| %>
 <%= f.input :content, label: t('comment') %>
  <div class="actions">
-  <%= f.submit %>
+  <%= f.submit :class => "button small" %>
 </div>
 <% end %>
