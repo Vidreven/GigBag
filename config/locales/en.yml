@@ -97,6 +97,7 @@ en:
   new_event: "New event"
   in_zagreb: " in Zagreb"
   event_list: "Event list"
+  created_on: "Created on: "
 
   comment_error: "Failed to create comment"
   comment: "Comment"

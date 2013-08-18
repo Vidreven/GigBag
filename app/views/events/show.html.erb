@@ -1,9 +1,12 @@
 <h1>
-	<%= @event.name %><%= t 'in_zagreb'%>
+	<%= @event.name %><%= t 'in_zagreb' %>
 </h1>
 <h3>
   <%= @event.description %> 
 </h3>
+<h4>
+	<%= t 'created_on' %><%= @event.created_at.strftime('%d.%m.%Y') %>
+</h4>
 <%= render 'comment_form' %>
 <% if @comments.any? %>
 	<ol class="comments">
