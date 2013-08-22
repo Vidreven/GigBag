@@ -12,10 +12,11 @@
 #
 
 class Event < ActiveRecord::Base
-  attr_accessible :event_date, :event_time, :name, :description
+  attr_accessible :event_date, :event_time, :name, :description, :status
 
   #validates :name, presence: true, length: {maximum: 50}
   validates :description, presence: true
+  validates :status, presence: true
   has_many :comments, dependent: :destroy
   belongs_to :band
 end

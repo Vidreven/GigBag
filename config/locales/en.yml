@@ -97,7 +97,12 @@ en:
   new_event: "New event"
   in_zagreb: " in Zagreb"
   event_list: "Event list"
+  status: "Status: "
   created_on: "Created on: "
+  discussion: "Discussion"
+  negotiation: "Negotiation"
+  confirmed: "Confirmed"
+  canceled: "Canceled"
 
   comment_error: "Failed to create comment"
   comment: "Comment"

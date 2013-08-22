@@ -1,6 +1,7 @@
 <%= simple_form_for @event, :defaults => {:required => false}, :html => {:class => "form"} do |f| %>
 <%= f.input :name, as: :hidden %>
 <%= f.input :description %>
+<%= f.input :status, collection: [t('discussion'), t('negotiation'), t('confirmed'), t('canceled')], include_blank: false %>
  <div class="actions">
   <%= f.submit :class => "button small" %>
 </div>
