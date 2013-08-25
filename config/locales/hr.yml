@@ -94,6 +94,12 @@ hr:
   new_event: "Novi koncert"
   in_zagreb: " u Zagrebu"
   event_list: "Popis koncerata"
+  created_on: "Kreiran: "
+  status: "Status: "
+  discussion: "Diskusiija"
+  negotiation: "Pregovori"
+  confirmed: "Potvrđeno"
+  canceled: "Otkazano"
 
   comment_error: "Neuspjelo postavljanje komentara"
   comment: "Komentar"

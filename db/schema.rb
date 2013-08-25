@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704170302) do
+ActiveRecord::Schema.define(:version => 20130822173400) do
 
   create_table "bands", :force => true do |t|
     t.string   "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130704170302) do
     t.datetime "updated_at",  :null => false
     t.text     "description"
     t.integer  "band_id"
+    t.string   "status"
   end
 
   create_table "fan_profiles", :force => true do |t|
@@ -67,6 +68,9 @@ ActiveRecord::Schema.define(:version => 20130704170302) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.string   "name"
     t.string   "unconfirmed_email"
     t.string   "invitation_token",       :limit => 60
@@ -78,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20130704170302) do
     t.boolean  "admin",                                :default => false
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["invited_by_id"], :name => "index_users_on_invited_by_id"
