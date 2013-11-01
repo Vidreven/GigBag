@@ -7,7 +7,7 @@
   <li class="smallBox" id=<%= "band_#{band.id}" %> >
     <div>
       <%= image_tag band.image, :size=>"128x128" %> 
-      <%= link_to band.name, band, :class => "info" %>
+      <h3><%= link_to band.name, band, :class => "info" %></h3>
       <p>
         Bresaola sirloin venison beef, duis ut exercitation pork chop minim culpa pork loin dolore. Exercitation officia short loin, sirloin reprehenderit incididunt in dolore ad est excepteur filet mignon shank boudin. Incididunt sunt meatball ut, non ad rump ham hock flank aliquip ex. Shank cillum bresaola, nulla aute quis strip steak. Incididunt ad hamburger, fatback eu dolor occaecat veniam. Turkey occaecat andouille drumstick pork belly minim ea anim beef do. Deserunt fugiat exercitation, laboris brisket esse laborum.
       </p>
@@ -17,6 +17,7 @@
       <% if user_signed_in? %>
         <%= link_to t('edit'), edit_band_path(band), :class => "small button" %>
         <%= link_to t('remove'), band, :confirm => t('are_you_sure'), :method => :delete, :class => "small button" %>
+        <%= link_to t('create_event'), new_event_path(:name => band.name), :class => "small button" %>
       <% end %>
     </div>
   </li>
