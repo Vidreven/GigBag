@@ -95,6 +95,8 @@ hr:
   in_zagreb: " u Zagrebu"
   event_list: "Popis koncerata"
   created_on: "Kreiran: "
+  created_by: "Kreirao: "
+  organizer: "Organizator: "
   status: "Status: "
   discussion: "Diskusiija"
   negotiation: "Pregovori"
