@@ -99,6 +99,8 @@ en:
   event_list: "Event list"
   status: "Status: "
   created_on: "Created on: "
+  created_by: "Created by: "
+  organizer: "Organizer: "
   discussion: "Discussion"
   negotiation: "Negotiation"
   confirmed: "Confirmed"
