@@ -151,6 +151,20 @@ describe User do
 
   end
 
+  describe "Promoter profile creation" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+    end
+
+    it "should have a promoter profile attribute" do
+      @user.should respond_to(:promoter_profile)
+    end
+
+    #it "should not have organizer profile by default" do
+     # @user.promoter_profile_created?.should be_false
+    #end
+  end
+
   describe "comment associations" do
 
     let(:user) {FactoryGirl.create(:user)}

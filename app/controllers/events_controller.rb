@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   	#@event = Event.new(params[:event])
     @band = Band.find_by_name(params[:event][:name])
     @event = @band.events.build(params[:event])
-  
+    
   	if @event.save
   		flash[:success] = t 'event_created'
   		redirect_to @event
