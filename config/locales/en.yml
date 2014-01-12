@@ -105,6 +105,10 @@ en:
   negotiation: "Negotiation"
   confirmed: "Confirmed"
   canceled: "Canceled"
+  discussion_about: "Discussion about "
 
   comment_error: "Failed to create comment"
   comment: "Comment"
+
+  create_promoter_profile: "Create your promoter profile"
+  claim_event: "Claim event"

@@ -1,5 +1,5 @@
 <% if @band.events.empty? %>
   <div class="listeners"><div class="foundicon-mic"></div><%= t 'listened_by' %> <%= @band.fan_profiles.count %> <%= t 'gigbag_users' %><br /><%= link_to t('create_event'), new_event_path(:name => @band.name), :class => "small button" %></div>
 <% else %>
-  <%= link_to 'Discussion about ' + @band.name + ' in Zagreb' , event_path(@band.events.last) %>
+  <%= link_to t('discussion_about') + @band.name + t('in_zagreb') , event_path(@band.events.last) %>
 <%end%>

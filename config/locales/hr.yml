@@ -102,6 +102,10 @@ hr:
   negotiation: "Pregovori"
   confirmed: "Potvrđeno"
   canceled: "Otkazano"
+  discussion_about: "Rasprava o "
 
   comment_error: "Neuspjelo postavljanje komentara"
   comment: "Komentar"
+
+  create_promoter_profile: "Kreiraj promotorski profil"
+  claim_event: "Organiziraj koncert"
