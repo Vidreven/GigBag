@@ -33,4 +33,56 @@ describe PromoterProfilesController do
       		end
     	end
 	end
+
+	describe "PUT update" do
+		def login_user
+      		@request.env["devise.mapping"] = Devise.mappings[:user]
+      		@user = FactoryGirl.create(:user)
+      		sign_in @user
+    	end
+
+    	before :each do
+      		login_user
+      		@promoter_profile = FactoryGirl.create(:promoter_profile, user: @user)
+    	end
+
+    	context "valid attributes" do
+    		it "located the requested promoter_profile" do
+        		put :update, user_id: @promoter_profile, :promoter_profile => FactoryGirl.attributes_for(:promoter_profile)
+        		assigns(:promoter_profile).should eq(@promoter_profile)
+        		sign_out @user
+      		end
+
+      		it "redirects to the updated promoter_profile" do
+        		put :update, user_id: @promoter_profile, :promoter_profile => FactoryGirl.attributes_for(:promoter_profile)
+        		response.should redirect_to @promoter_profile.user
+      		end
+    	end
+
+    	context "invalid attributes" do
+      		it "locates the requested promoter_profile" do
+        		put :update, user_id: @promoter_profile, :promoter_profile => FactoryGirl.attributes_for(:invalid_promoter_profile)
+        		assigns(:promoter_profile).should eq(@promoter_profile)
+      		end
+    	end
+	end
+
+	describe 'DELETE destroy' do
+    	def login_user
+      		@request.env["devise.mapping"] = Devise.mappings[:user]
+      		@user = FactoryGirl.create(:user)
+      		sign_in @user
+    	end
+
+    	before :each do
+      		login_user
+      		@promoter_profile = FactoryGirl.create(:promoter_profile, user: @user)
+    	end
+
+    	it "deletes the promoter_profile" do
+      		expect{
+        		delete :destroy, user_id: @promoter_profile, id: @promoter_profile
+      		}.to change(PromoterProfile, :count).by(-1)
+    	end
+  	end
 end

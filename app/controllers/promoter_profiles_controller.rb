@@ -22,4 +22,30 @@ class PromoterProfilesController < ApplicationController
       render :new
     end
   end
+
+  def update
+    @user = User.find(params[:user_id])
+    @promoter_profile = @user.promoter_profile
+    @promoter_profile.update_attributes(params[:promoter_profile])
+    if @promoter_profile.save
+      @user.promoter_profile = @promoter_profile
+      flash[:success] = t 'profile_updated' #"Successfully updated profile"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
+    @title = t 'edit_profile' #"Edit profile"
+    @user = User.find(params[:user_id])
+    @promoter_profile = @user.promoter_profile
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @user.promoter_profile.destroy
+    redirect_to @user
+  end
+
 end

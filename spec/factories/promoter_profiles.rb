@@ -7,4 +7,11 @@ FactoryGirl.define do
     phone_number "012988555"
     street_address "Gigsterska 1"
   end
+
+  factory :invalid_promoter_profile, parent: :promoter_profile do
+    user
+    identification ""
+    phone_number ""
+    street_address ""
+  end
 end
