@@ -1,17 +1,15 @@
 $ ->
+  fetchUserData = undefined
   lastfm = undefined
   lastfmCache = undefined
-  lastfm = undefined
-  lastfmCache = undefined
-  $("input.band_selection_field").select2 tags: $("input.band_selection_field").data("bands")
-  $("#sources").select2()
-  lastfmCache = new LastFMCache()
-  lastfm = new LastFM(
-    apiKey: "300e96d1eeb49e5a0c0ecba01970b8e4"
-    apiSecret: "3de5f59a9b755bb824af45b28f2efdba"
-    cache: lastfmCache
-  )
-  $("#buttonFetchData").click ->
+  $("#select2-drop").change (event) ->
+    fetchUserData event.val if event.val
+    return
+
+  fetchUserData = (username) ->
+    opts = undefined
+    spinner = undefined
+    target = undefined
     opts = undefined
     spinner = undefined
     target = undefined
@@ -20,7 +18,10 @@ $ ->
     spinner = undefined
     target = undefined
     username = undefined
-    username = $("#fan_profile_lastfm_username").val()
+    opts = undefined
+    spinner = undefined
+    target = undefined
+    username = undefined
     opts =
       lines: 13
       length: 20
@@ -47,6 +48,12 @@ $ ->
     ,
       success: (data) ->
         fetchedArtists = undefined
+        newData = undefined
+        previousData = undefined
+        fetchedArtists = undefined
+        newData = undefined
+        previousData = undefined
+        fetchedArtists = undefined
         previousData = undefined
         newData = undefined
         fetchedArtists = undefined
@@ -69,5 +76,36 @@ $ ->
         return
 
     return
+
+  lastfm = undefined
+  lastfmCache = undefined
+  lastfm = undefined
+  lastfmCache = undefined
+  lastfm = undefined
+  lastfmCache = undefined
+  $("input.band_selection_field").select2 tags: $("input.band_selection_field").data("bands")
+  $("input.band_selection_field").val(null).trigger "change"
+  $("#sources").select2()
+  lastfmCache = new LastFMCache()
+  lastfm = new LastFM(
+    apiKey: "300e96d1eeb49e5a0c0ecba01970b8e4"
+    apiSecret: "3de5f59a9b755bb824af45b28f2efdba"
+    cache: lastfmCache
+  )
+  $("#fan_profile_lastfm_username").select2
+    placeholder: "Enter username"
+    minimumInputLength: 5
+    ajax:
+      url: "http://ws.audioscrobbler.com/2.0/?method=user.getInfo&api_key=300e96d1eeb49e5a0c0ecba01970b8e4&limit=5&format=json"
+      dataType: "json"
+      data: (term, page) ->
+        user: term
+
+      results: (data, page) ->
+        results: (if data.user then data.user else '')
+
+    dropdownCssClass: "bigdrop"
+    escapeMarkup: (m) ->
+      m
 
   return

@@ -4,8 +4,7 @@
 	<option value="lastfm">last.fm</option>
 </select>
 <%= f.input :lastfm_username %>
-<div id="buttonFetchData" class="small button">Fetch data</div>
-<%= f.input :band_list, :size=> 300, :input_html => { :autocomplete => 'off', :data => { :bands => Band.get_bands_list.to_json }, :class => "band_selection_field" } %>
+<%= f.input :band_list, :size=> 300, :input_html => { :autocomplete => 'on', :data => { :bands => Band.get_bands_list.to_json }, :class => "band_selection_field" } %>
 <div class="actions">
 	<%= f.submit :class => "small button" %>
 </div>
