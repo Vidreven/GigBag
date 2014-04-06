@@ -6,22 +6,18 @@ $ ->
     fetchUserData event.val if event.val
     return
 
+  $("#fetchUser").click (event) ->
+  	fetchUserData $("#fan_profile_lastfm_username").val()
+
+  $("#fan_profile_lastfm_username").keydown (event) ->
+  	if event.which == 13
+  		event.preventDefault() 
+  		fetchUserData $("#fan_profile_lastfm_username").val()
+
   fetchUserData = (username) ->
     opts = undefined
     spinner = undefined
     target = undefined
-    opts = undefined
-    spinner = undefined
-    target = undefined
-    username = undefined
-    opts = undefined
-    spinner = undefined
-    target = undefined
-    username = undefined
-    opts = undefined
-    spinner = undefined
-    target = undefined
-    username = undefined
     opts =
       lines: 13
       length: 20
@@ -50,15 +46,6 @@ $ ->
         fetchedArtists = undefined
         newData = undefined
         previousData = undefined
-        fetchedArtists = undefined
-        newData = undefined
-        previousData = undefined
-        fetchedArtists = undefined
-        previousData = undefined
-        newData = undefined
-        fetchedArtists = undefined
-        previousData = undefined
-        newData = undefined
         spinner.stop()
         fetchedArtists = Enumerable.From(data.topartists.artist).Select((x) ->
           x.name
@@ -79,12 +66,7 @@ $ ->
 
   lastfm = undefined
   lastfmCache = undefined
-  lastfm = undefined
-  lastfmCache = undefined
-  lastfm = undefined
-  lastfmCache = undefined
   $("input.band_selection_field").select2 tags: $("input.band_selection_field").data("bands")
-  $("input.band_selection_field").val(null).trigger "change"
   $("#sources").select2()
   lastfmCache = new LastFMCache()
   lastfm = new LastFM(
@@ -92,20 +74,5 @@ $ ->
     apiSecret: "3de5f59a9b755bb824af45b28f2efdba"
     cache: lastfmCache
   )
-  $("#fan_profile_lastfm_username").select2
-    placeholder: "Enter username"
-    minimumInputLength: 5
-    ajax:
-      url: "http://ws.audioscrobbler.com/2.0/?method=user.getInfo&api_key=300e96d1eeb49e5a0c0ecba01970b8e4&limit=5&format=json"
-      dataType: "json"
-      data: (term, page) ->
-        user: term
-
-      results: (data, page) ->
-        results: (if data.user then data.user else '')
-
-    dropdownCssClass: "bigdrop"
-    escapeMarkup: (m) ->
-      m
-
+  
   return

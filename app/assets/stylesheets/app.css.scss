@@ -247,3 +247,63 @@ ol.comments li {
 #s2id_fan_profile_lastfm_username, #s2id_fan_profile_band_list {
 	width: 100%!important;
 }
+
+#fetchUser, #fan_profile_lastfm_username {
+	float: left;
+}
+
+#fan_profile_lastfm_username {
+	width: 250px;
+}
+
+#fetchUser {
+	margin-left: 5px;
+}
+
+.fan_profile_band_list {
+	clear: both;
+}
+
+.fan_profile_lastfm_username label, #profileSubmit {
+	margin-top: 10px;
+}
+
+.select2-search-choice {
+	background: $replacementColor!important;
+	color: $textColor!important;
+}
+
+.select2-choices {
+	padding: 5px!important;
+	border-radius: 10px;
+	border-color: white!important;
+	background-image: none!important;
+}
+
+html,
+body {
+   margin:0!important;
+   padding:0!important;
+   height:100%!important;
+}
+
+#container {
+   min-height:100%!important;
+   position:relative!important;
+}
+
+#body {
+   padding:10px!important;
+   padding-bottom:140px!important;
+}
+
+#header {
+   padding:10px!important;
+}
+
+#footer {
+   position:absolute!important;
+   bottom:0!important;
+   width:100%!important;
+   height:140px!important;
+}
