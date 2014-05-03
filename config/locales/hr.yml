@@ -108,5 +108,7 @@ hr:
   comment: "Komentar"
 
   create_promoter_profile: "Kreiraj promotorski profil"
+  promoter_profile_created: "Promotorski profil kreiran"
   claim_event: "Organiziraj koncert"
   edit_promoter_profile: "Uredi promotorski profil"
+  mail_sent: "Poslan je email s Vašim zahtjevom za organizaciju"

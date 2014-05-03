@@ -17,11 +17,18 @@
 	<%= t 'status' %><%= @event.status %>
 </p>
 <p>
-	<%= link_to t('edit_event'), edit_event_path(@event), :class => "small button" %>
+	<%= link_to t('edit_event'), edit_event_path(@event), class: "small button" %>
 </p>
+<% if current_user.promoter_profile_created? %>
+<p>
+	<%= mail_to "gigbag2013@gmail.com", t('claim_event'), {subject: "Requesting promoter profile",
+	 body: "#{current_user.name} (#{current_user.id}) is claiming #{params[:id]}"} %>
+</p>
+<% else %>
 <p>
 	<%= link_to t('claim_event'), new_user_promoter_profile_path(current_user), class: "small button" %>
 </p>
+<% end %>
 <%= render 'comment_form' %>
 <% if @comments.any? %>
 	<ol class="comments">

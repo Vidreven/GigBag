@@ -21,7 +21,6 @@ class EventsController < ApplicationController
   end
 
   def create
-  	#@event = Event.new(params[:event])
     @band = Band.find_by_name(params[:event][:name])
     @event = @band.events.build(params[:event])
     

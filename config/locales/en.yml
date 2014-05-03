@@ -111,5 +111,7 @@ en:
   comment: "Comment"
 
   create_promoter_profile: "Create your promoter profile"
+  promoter_profile_created: "Promoter profile created"
   claim_event: "Claim event"
   edit_promoter_profile: "Edit your promoter profile"
+  mail_sent: "Mail with Your claim request has been sent"
