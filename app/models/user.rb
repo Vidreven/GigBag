@@ -28,6 +28,7 @@
 
 class User < ActiveRecord::Base
   has_one :fan_profile, :dependent => :destroy
+  has_one :promoter_profile, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -40,6 +41,10 @@ class User < ActiveRecord::Base
 
   def fan_profile_created?
     !fan_profile.nil? 
+  end
+
+  def promoter_profile_created?
+    !promoter_profile.nil?
   end
 
 end

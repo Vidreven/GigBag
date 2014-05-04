@@ -1,0 +1,13 @@
+<h2>
+	<%= t('promoter_profile_for') + " " + current_user.name %>
+</h2>
+<p>
+	<%= t 'identification' %>: <%= current_user.promoter_profile.identification %>
+</p>
+<p>
+	<%= t 'phone_number' %>: <%= current_user.promoter_profile.phone_number %>
+</p>
+<p>
+	<%= t 'street_address' %>: <%= current_user.promoter_profile.street_address %>
+</p>
+<%= link_to t('edit_promoter_profile'), edit_user_promoter_profile_path(current_user) %>

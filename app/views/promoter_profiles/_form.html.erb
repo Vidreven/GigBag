@@ -1,0 +1,8 @@
+<%= simple_form_for ([@user, @promoter_profile]), :defaults => {:required => false}, url: user_promoter_profile_path(@user) do |f| %>
+<%= f.input :identification %>
+<%= f.input :phone_number %>
+<%= f.input :street_address %>
+ <div class="actions">
+  <%= f.submit %>
+</div>
+<% end %>

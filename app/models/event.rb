@@ -19,4 +19,5 @@ class Event < ActiveRecord::Base
   validates :status, presence: true
   has_many :comments, dependent: :destroy
   belongs_to :band
+  belongs_to :promoter_profile
 end

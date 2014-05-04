@@ -22,4 +22,12 @@ FactoryGirl.define do
     password_confirmation 'please'
   end
 
+  factory :user_with_promoter_profile, parent: :user do
+    promoter_profile
+    name 'Test Fan'
+    email 
+    password 'please'
+    password_confirmation 'please'
+  end
+
 end

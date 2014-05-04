@@ -12,6 +12,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.find_by_name(params[:name])
+    cookies[:band] = params[:name]
     if @event
       redirect_to @event
     else
@@ -21,10 +22,9 @@ class EventsController < ApplicationController
   end
 
   def create
-  	#@event = Event.new(params[:event])
-    @band = Band.find_by_name(params[:event][:name])
+    @band = Band.find_by_name(cookies[:band]) #(params[:event][:name])
     @event = @band.events.build(params[:event])
-  
+    
   	if @event.save
   		flash[:success] = t 'event_created'
   		redirect_to @event

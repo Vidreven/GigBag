@@ -1,4 +1,6 @@
 GigBag::Application.routes.draw do
+  #get "promoter_profiles/new"
+
   get "pages/help"
 
   get "pages/about"
@@ -20,6 +22,7 @@ GigBag::Application.routes.draw do
 
   resources :users do
     resource :fan_profile
+    resource :promoter_profile
   end
 
   resources :bands
