@@ -11,6 +11,11 @@
 			<%= link_to t('edit_account'), edit_user_registration_path %>
 		</li>
 		<%= render :partial => 'shared/fan_profile_managment' %>
+		<% if current_user.promoter_profile_created? %>
+		<li>
+			<%= link_to t('edit_promoter_profile'), edit_user_promoter_profile_path(current_user) %>
+		</li>
+		<% end %>
 	</ul>
 </li>
 <li class="divider"></li>

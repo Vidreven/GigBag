@@ -18,7 +18,7 @@ class PromoterProfilesController < ApplicationController
       flash[:success] = t 'promoter_profile_created'
       @user.promoter_profile = @promoter_profile
       #PromoterProfileMailer.request_promoter_profile(@user).deliver
-      redirect_to session.delete(:return_to)
+      redirect_to session.delete(:return_to) || @user
     else
       flash[:error] = @promoter_profile.errors.full_messages.to_sentence
       render :new
