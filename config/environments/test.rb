@@ -1,4 +1,5 @@
 GigBag::Application.configure do
+  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's

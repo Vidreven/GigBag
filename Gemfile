@@ -12,6 +12,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-spork'
   gem 'annotate', '>=2.5.0'
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'rb-fsevent',       require: false
 end
 
 group :development do
